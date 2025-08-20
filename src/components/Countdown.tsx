@@ -44,31 +44,41 @@ const Countdown = ({ onEnded }: CountdownProps) => {
 
   return (
     <motion.div
-      className="fixed top-4 right-4 z-50 bg-white rounded-full shadow-lg p-3 flex items-center space-x-3"
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.3 }}
+      className="fixed top-6 right-6 z-[100] bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-slate-200/50 p-4 flex items-center space-x-4 lg:right-48"
+      initial={{ opacity: 0, scale: 0.8, y: -20 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <div className="relative w-10 h-10">
-        <svg className="w-10 h-10" viewBox="0 0 36 36">
+      <div className="relative w-12 h-12">
+        <svg className="w-12 h-12 transform -rotate-90" viewBox="0 0 36 36">
           <path
             d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
             fill="none"
-            stroke="#eee"
-            strokeWidth="3"
+            stroke="#e2e8f0"
+            strokeWidth="2"
           />
           <path
             d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
             fill="none"
             stroke="#3b82f6"
-            strokeWidth="3"
+            strokeWidth="2"
             strokeDasharray="100"
             strokeDashoffset={100 - progress}
+            className="transition-all duration-1000 ease-linear"
           />
         </svg>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+        </div>
       </div>
-      <div className="text-lg font-mono font-bold text-gray-900">
-        {formatTime(timeLeft)}
+      
+      <div className="flex flex-col">
+        <div className="text-lg font-black text-slate-900 tracking-wider">
+          {formatTime(timeLeft)}
+        </div>
+        <div className="text-xs text-slate-500 font-medium uppercase tracking-wide">
+          Showcase Timer
+        </div>
       </div>
     </motion.div>
   )

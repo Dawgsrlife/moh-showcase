@@ -7,15 +7,24 @@ const App = () => {
   // Initialize Lenis for smooth scrolling
   useLenis()
 
-  // Set up CSS variables for theming
+  // Set up CSS variables for theming and Inter font optimization
   useEffect(() => {
-    document.documentElement.style.setProperty('--primary', '#3b82f6') // blue-500
-    document.documentElement.style.setProperty('--primary-dark', '#2563eb') // blue-600
-    document.documentElement.style.setProperty('--primary-light', '#93c5fd') // blue-300
+    // Set up font optimization
+    document.documentElement.style.setProperty('font-display', 'swap')
+    
+    // Set modern color palette
+    document.documentElement.style.setProperty('--primary', '#0ea5e9') // sky-500
+    document.documentElement.style.setProperty('--primary-dark', '#0284c7') // sky-600
+    document.documentElement.style.setProperty('--primary-light', '#38bdf8') // sky-400
+    document.documentElement.style.setProperty('--accent', '#22c55e') // green-500
+    document.documentElement.style.setProperty('--accent-dark', '#16a34a') // green-600
+    
+    // Enable font features for better typography
+    document.body.style.fontFeatureSettings = '"rlig" 1, "calt" 1'
   }, [])
 
   return (
-    <div className="relative">
+    <div className="relative font-sans antialiased">
       <SkipLink />
       <Routes />
     </div>
