@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import { 
   Hero, 
   Timeline, 
@@ -18,7 +19,12 @@ const Routes = () => {
   }
 
   return (
-    <div className="relative">
+    <motion.div 
+      className="relative"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1, ease: "easeOut" }}
+    >
       <AnimatedBackground />
       <Countdown onEnded={handleTimeEnd} />
       <NavDots />
@@ -32,7 +38,7 @@ const Routes = () => {
         <Impact />
         <Closing timeEnded={timeEnded} />
       </main>
-    </div>
+    </motion.div>
   )
 }
 

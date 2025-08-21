@@ -15,13 +15,13 @@ interface LenisConstructor {
 
 declare const Lenis: LenisConstructor
 
-export const useLenis = () => {
+export const useLenis = (enabled: boolean = true) => {
   const lenisRef = useRef<LenisInstance | null>(null)
   const prefersReducedMotion = usePrefersReducedMotion()
 
   useEffect(() => {
-    // Don't initialize Lenis if user prefers reduced motion
-    if (prefersReducedMotion) {
+    // Don't initialize Lenis if user prefers reduced motion or if disabled
+    if (prefersReducedMotion || !enabled) {
       return
     }
 
@@ -66,7 +66,7 @@ export const useLenis = () => {
         cancelAnimationFrame(rafId)
       }
     }
-  }, [prefersReducedMotion])
+  }, [prefersReducedMotion, enabled])
 
   return lenisRef
 }

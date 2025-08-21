@@ -50,7 +50,7 @@ const Hero = () => {
               variants={slideUp}
             >
               <span className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
-              5-minute showcase experience
+              Presented by Alexander He Meng • 5-minute showcase
             </motion.div>
             
             <motion.h1
