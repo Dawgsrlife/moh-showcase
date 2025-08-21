@@ -7,7 +7,7 @@ const NavDots = () => {
   useEffect(() => {
     // Set up scroll observer
     const handleScroll = () => {
-      const sections = ['hero', 'timeline', 'tools', 'deep-dives', 'impact', 'closing']
+      const sections = ['hero', 'timeline', 'architecture', 'tools', 'deep-dives', 'impact', 'closing']
       const scrollPosition = window.scrollY + window.innerHeight / 2
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -33,6 +33,7 @@ const NavDots = () => {
   const sections = [
     { id: 'hero', label: 'Hero' },
     { id: 'timeline', label: 'Timeline' },
+    { id: 'architecture', label: 'Architecture' },
     { id: 'tools', label: 'Tools' },
     { id: 'deep-dives', label: 'Deep Dives' },
     { id: 'impact', label: 'Impact' },

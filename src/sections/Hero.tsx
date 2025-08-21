@@ -58,10 +58,13 @@ const Hero = () => {
               variants={slideUp}
             >
               <span className="block bg-gradient-to-r from-slate-900 via-blue-800 to-indigo-900 bg-clip-text text-transparent">
-                Ontario Ministry
+                Ontario Ministry of
               </span>
               <span className="block bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                of Health
+                Public & Business Service
+              </span>
+              <span className="block bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
+                Delivery & Procurement
               </span>
               <span className="block text-3xl md:text-4xl lg:text-5xl font-semibold mt-4 text-slate-700">
                 Internship Showcase
@@ -72,8 +75,9 @@ const Hero = () => {
               className="text-xl md:text-2xl text-slate-600 mb-12 max-w-4xl mx-auto leading-relaxed font-medium"
               variants={slideUp}
             >
-              Exploring data transformation, automation, and innovation in 
-              <span className="text-blue-600 font-semibold"> healthcare technology</span>
+              Technical achievements in <span className="text-blue-600 font-semibold">SAS Viya migration</span>, 
+              <span className="text-emerald-600 font-semibold"> AWS infrastructure</span>, and 
+              <span className="text-indigo-600 font-semibold"> enterprise analytics automation</span>
             </motion.p>
             
             <motion.div

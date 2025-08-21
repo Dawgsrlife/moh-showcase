@@ -1,13 +1,14 @@
 import { useState } from 'react'
-import Hero from '../sections/Hero'
-import Timeline from '../sections/Timeline'
-import Tools from '../sections/Tools'
-import DeepDives from '../sections/DeepDives'
-import Impact from '../sections/Impact'
-import Closing from '../sections/Closing'
-import NavDots from '../components/NavDots'
-import AnimatedBackground from '../components/AnimatedBackground'
-import Countdown from '../components/Countdown'
+import { 
+  Hero, 
+  Timeline, 
+  Architecture, 
+  Tools, 
+  DeepDives, 
+  Impact, 
+  Closing 
+} from '../sections'
+import { NavDots, AnimatedBackground, Countdown } from '../components'
 
 const Routes = () => {
   const [timeEnded, setTimeEnded] = useState(false)
@@ -25,6 +26,7 @@ const Routes = () => {
       <main id="main-content">
         <Hero />
         <Timeline />
+        <Architecture />
         <Tools />
         <DeepDives />
         <Impact />

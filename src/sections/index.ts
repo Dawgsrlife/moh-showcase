@@ -1,5 +1,6 @@
 // Barrel export for sections
 
+export { default as Architecture } from './Architecture'
 export { default as Closing } from './Closing'
 export { default as DeepDives } from './DeepDives'
 export { default as Hero } from './Hero'

@@ -5,42 +5,70 @@ export interface Metric {
   prefix?: string
   suffix?: string
   description: string
+  category?: 'impact' | 'performance' | 'scale' | 'quality'
 }
 
 export const metrics: Metric[] = [
   {
     id: 'pipelines',
     value: 20000,
-    label: 'Pipelines',
+    label: 'SAS Pipelines',
     suffix: '+',
-    description: 'SAS Viya pipelines auto-mapped'
+    description: 'Auto-mapped across enterprise systems',
+    category: 'scale'
   },
   {
-    id: 'time-saved',
-    value: 200,
-    label: 'Hours',
+    id: 'performance-gain',
+    value: 36,
+    label: 'Performance',
+    suffix: 'x faster',
+    description: 'AWS Redshift vs SAS Viya improvement',
+    category: 'performance'
+  },
+  {
+    id: 'residents-served',
+    value: 14.5,
+    label: 'Million',
+    description: 'Ontario residents supported by analytics',
+    category: 'impact'
+  },
+  {
+    id: 'analysts-enabled',
+    value: 1000,
+    label: 'Analysts',
     suffix: '+',
-    description: 'Manual work hours saved'
+    description: 'Enabled with standardized pipelines',
+    category: 'impact'
   },
   {
-    id: 'accuracy',
-    value: 95,
-    label: '% Accuracy',
-    description: 'In automated file matching'
+    id: 'mapping-efficiency',
+    value: 90,
+    label: 'Reduction',
+    suffix: '%',
+    description: 'In manual mapping effort',
+    category: 'performance'
   },
   {
-    id: 'scripts-validated',
+    id: 'files-processed',
+    value: 438,
+    label: '.flw Files',
+    description: 'Tested and optimized',
+    category: 'scale'
+  },
+  {
+    id: 'reports-validated',
     value: 50,
-    label: 'Scripts',
+    label: 'Enterprise Reports',
     suffix: '+',
-    description: 'Validated with PyCharm and pytest'
+    description: 'Thoroughly tested post-migration',
+    category: 'quality'
   },
   {
-    id: 'reports-improved',
-    value: 15,
-    label: 'Reports',
-    suffix: '+',
-    description: 'With visual fixes and UI polish'
+    id: 'runtime-improvement',
+    value: 175,
+    label: 'Minutes',
+    description: 'Runtime reduced (3h → 5m)',
+    category: 'performance'
   }
 ]
 
