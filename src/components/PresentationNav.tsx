@@ -11,9 +11,11 @@ const navItems: NavItem[] = [
   { id: 'hero', label: 'Introduction', order: 1 },
   { id: 'timeline', label: 'Timeline', order: 2 },
   { id: 'tools', label: 'Technologies', order: 3 },
-  { id: 'deep-dives', label: 'Insights', order: 4 },
-  { id: 'impact', label: 'Impact', order: 5 },
-  { id: 'closing', label: 'Closing', order: 6 }
+  { id: 'team', label: 'Team', order: 4 },
+  { id: 'technical-showcase', label: 'Technical', order: 5 },
+  { id: 'deep-dives', label: 'Insights', order: 6 },
+  { id: 'impact', label: 'Impact', order: 7 },
+  { id: 'closing', label: 'Closing', order: 8 }
 ]
 
 const PresentationNav = () => {

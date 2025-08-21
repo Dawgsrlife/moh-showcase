@@ -4,6 +4,8 @@ import {
   Hero, 
   Timeline, 
   Tools, 
+  Team,
+  TechnicalShowcase,
   DeepDives, 
   Impact, 
   Closing 
@@ -36,6 +38,8 @@ const Routes = () => {
         <Hero />
         <Timeline />
         <Tools />
+        <Team />
+        <TechnicalShowcase />
         <DeepDives />
         <Impact />
         <Closing timeEnded={timeEnded} />

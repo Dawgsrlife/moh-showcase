@@ -104,6 +104,20 @@ const Hero = () => {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="space-y-8"
                   >
+                    {/* Profile Picture */}
+                    <div className="flex justify-center mb-8">
+                      <div className="relative">
+                        <img 
+                          src="/images/AlexTheMango.JPG"
+                          alt="Alexander He Meng - Profile Picture"
+                          className="w-32 h-32 rounded-full object-cover border-4 border-white/20 shadow-2xl"
+                        />
+                        <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-white flex items-center justify-center">
+                          <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                        </div>
+                      </div>
+                    </div>
+
                     {/* Main Title */}
                     <div className="space-y-4">
                       <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white font-heading">

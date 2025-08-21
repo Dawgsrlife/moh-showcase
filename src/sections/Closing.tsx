@@ -146,8 +146,17 @@ const Closing = ({ timeEnded }: ClosingProps) => {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 1.2 }}
               viewport={{ once: true }}
-              className="pt-8 border-t border-white/20 space-y-4"
+              className="pt-8 border-t border-white/20 space-y-6"
             >
+              {/* Profile Picture */}
+              <div className="flex justify-center mb-4">
+                <img 
+                  src="/images/AlexTheMango.JPG"
+                  alt="Alexander He Meng - Profile Picture"
+                  className="w-20 h-20 rounded-full object-cover border-3 border-white/30"
+                />
+              </div>
+              
               <h3 className="text-xl font-bold text-white">
                 Alexander He Meng
               </h3>

@@ -41,6 +41,19 @@ const TimelineItem = ({ milestone, index }: TimelineItemProps) => (
           {milestone.description}
         </p>
 
+        {/* Image Display */}
+        {milestone.image && (
+          <div className="relative rounded-xl overflow-hidden border border-gray-200 shadow-lg group">
+            <img 
+              src={milestone.image}
+              alt={milestone.imageAlt || milestone.title}
+              className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+        )}
+
         {milestone.impact && (
           <div className="relative pl-6">
             <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-green-400 to-blue-500 rounded-full"></div>
