@@ -57,14 +57,11 @@ const Hero = () => {
   return (
     <Section id="hero" variant="snap">
       <div className="min-h-screen relative overflow-hidden">
-        {/* Clean Professional Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900"></div>
+        {/* Softer Professional Background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-800 to-slate-900"></div>
         
-        {/* Subtle geometric overlay */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.15),transparent_50%),radial-gradient(circle_at_80%_80%,rgba(120,119,198,0.15),transparent_50%)]"></div>
-        
-        {/* Grid pattern overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:72px_72px]"></div>
+        {/* Subtle texture overlay */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.05),transparent_70%)]"></div>
 
         <div className="container-max section-padding flex items-center justify-center min-h-screen relative z-10">
           <AnimatePresence mode="wait">
@@ -109,20 +106,20 @@ const Hero = () => {
                   >
                     {/* Main Title */}
                     <div className="space-y-4">
-                      <h1 className="text-6xl md:text-8xl font-bold tracking-tight text-white font-heading">
-                        Technical Excellence
+                      <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white font-heading">
+                        Internship Showcase
                       </h1>
-                      <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed font-light">
-                        Presenting enterprise-scale achievements in SAS Viya migration, 
-                        AWS infrastructure optimization, and analytics automation
+                      <p className="text-lg md:text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
+                        Enterprise analytics migration, AWS infrastructure work, 
+                        and automation development at Ontario Ministry
                       </p>
                     </div>
 
                     {/* Clean Presenter Info */}
-                    <div className="pt-8 border-t border-white/10">
-                      <div className="inline-flex items-center space-x-4 px-8 py-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
-                        <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                        <span className="text-white/90 font-medium">5-minute showcase experience</span>
+                    <div className="pt-6">
+                      <div className="inline-flex items-center space-x-3 px-6 py-3 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
+                        <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                        <span className="text-slate-200 font-medium">5-minute presentation</span>
                       </div>
                     </div>
                   </motion.div>
@@ -138,36 +135,28 @@ const Hero = () => {
                       onClick={() => {
                         document.getElementById('timeline')?.scrollIntoView({ behavior: 'smooth' })
                       }}
-                      className="group px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/25"
+                      className="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105"
                     >
-                      <span className="flex items-center space-x-2">
-                        <span>Begin Presentation</span>
-                        <span className="group-hover:translate-x-1 transition-transform">→</span>
-                      </span>
+                      Begin Presentation
                     </button>
                     
                     <button
                       onClick={() => setShowContent(false)}
-                      className="px-6 py-3 text-white/70 hover:text-white border border-white/20 hover:border-white/40 rounded-xl transition-all duration-300 font-medium"
+                      className="px-6 py-3 text-slate-300 hover:text-white border border-slate-600 hover:border-slate-400 rounded-lg transition-all duration-300 font-medium"
                     >
-                      Skip Introduction →
+                      Skip Introduction
                     </button>
                   </motion.div>
 
-                  {/* Navigation Hint */}
+                  {/* Simple Navigation Hint */}
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: 1.2 }}
-                    className="pt-12"
+                    className="pt-8"
                   >
-                    <div className="text-white/50 text-sm font-medium space-y-2">
+                    <div className="text-slate-400 text-sm">
                       <p>Press ESC or ENTER to skip animations</p>
-                      <div className="flex justify-center space-x-2">
-                        <div className="w-2 h-2 bg-white/30 rounded-full"></div>
-                        <div className="w-2 h-2 bg-white/20 rounded-full"></div>
-                        <div className="w-2 h-2 bg-white/20 rounded-full"></div>
-                      </div>
                     </div>
                   </motion.div>
                 </div>

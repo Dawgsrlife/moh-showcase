@@ -22,7 +22,7 @@ export const metrics: Metric[] = [
     value: 36,
     label: 'Performance',
     suffix: 'x faster',
-    description: 'AWS Redshift vs SAS Viya improvement',
+    description: 'Runtime improvement observed in testing (hours → minutes)',
     category: 'performance'
   },
   {

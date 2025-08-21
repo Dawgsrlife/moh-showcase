@@ -56,12 +56,12 @@ const Closing = ({ timeEnded }: ClosingProps) => {
               className="grid-responsive-3 mb-20 gap-8"
             >
               <div className="text-center space-y-4 p-8 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
-                <div className="text-4xl font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">5</div>
+                <div className="text-4xl font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">4</div>
                 <div className="text-sm text-gray-300 font-medium">Months Experience</div>
               </div>
               <div className="text-center space-y-4 p-8 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
                 <div className="text-4xl font-bold bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">36×</div>
-                <div className="text-sm text-gray-300 font-medium">Performance Gain</div>
+                <div className="text-sm text-gray-300 font-medium">Runtime Improvement</div>
               </div>
               <div className="text-center space-y-4 p-8 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
                 <div className="text-4xl font-bold bg-gradient-to-r from-green-300 to-emerald-300 bg-clip-text text-transparent">90%</div>
@@ -78,7 +78,7 @@ const Closing = ({ timeEnded }: ClosingProps) => {
               className="space-y-8 mb-20"
             >
               <div className="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-                <span className="text-2xl font-bold text-white">🚀 Looking Forward</span>
+                <span className="text-2xl font-bold text-white">Looking Forward</span>
               </div>
               
               <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10">

@@ -76,7 +76,7 @@ const Impact = () => {
               
               <div className="relative z-10">
                 <div className="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6">
-                  <span className="text-cyan-300 font-semibold">🚀 Enterprise Success</span>
+                  <span className="text-cyan-300 font-semibold">Enterprise Success</span>
                 </div>
                 
                 <h3 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent">
@@ -84,9 +84,9 @@ const Impact = () => {
                 </h3>
                 
                 <p className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
-                  Successfully contributed to enterprise migration supporting{' '}
+                  Contributed to enterprise migration supporting{' '}
                   <span className="font-bold text-white bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">14.5 million Ontario residents</span>{' '}
-                  through automated tooling, performance optimization, and comprehensive quality assurance.
+                  through testing support, automation tooling, and quality assurance activities.
                 </p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
@@ -95,8 +95,8 @@ const Impact = () => {
                     <div className="text-gray-400">Tool Development</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-purple-400">Performance</div>
-                    <div className="text-gray-400">Optimization</div>
+                    <div className="text-2xl font-bold text-purple-400">Testing</div>
+                    <div className="text-gray-400">Quality Assurance</div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold text-pink-400">Quality</div>
