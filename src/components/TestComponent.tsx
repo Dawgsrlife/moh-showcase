@@ -1,5 +1,4 @@
-import React from 'react';
-
+// Test component placeholder
 const TestComponent = () => {
   return (
     <div className="p-8 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl shadow-xl border border-blue-200/50">

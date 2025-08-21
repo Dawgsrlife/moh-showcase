@@ -1,149 +1,104 @@
 import { motion } from 'framer-motion'
 import Section from '../components/Section'
-import { experiences, recommendations } from '../data/experiences'
+import { recommendations } from '../data/experiences'
 
 const DeepDives = () => {
-  const categories = {
-    'Technical Excellence': experiences.filter(exp => exp.category === 'technical'),
-    'Enterprise Architecture': experiences.filter(exp => exp.category === 'architecture'),
-    'Process Innovation': experiences.filter(exp => exp.category === 'process'),
-    'Leadership Insights': experiences.filter(exp => exp.category === 'leadership')
-  }
-
-  const getCategoryIcon = (category: string) => {
-    switch (category) {
-      case 'Technical Excellence': return '⚡'
-      case 'Enterprise Architecture': return '🏗️'
-      case 'Process Innovation': return '🔄'
-      case 'Leadership Insights': return '🎯'
-      default: return '📋'
+  const keyLearnings = [
+    {
+      title: 'Enterprise Architecture',
+      insight: 'Understanding large-scale SAS Viya deployment across government infrastructure',
+      impact: 'Gained expertise in cloud-native analytics platforms and microservices architecture'
+    },
+    {
+      title: 'Automation Excellence', 
+      insight: 'Developing Python scripts for ETL pipeline automation and quality assurance',
+      impact: 'Reduced manual effort by 90% through intelligent automation solutions'
+    },
+    {
+      title: 'Performance Optimization',
+      insight: 'AWS infrastructure tuning and query optimization for enterprise workloads', 
+      impact: 'Achieved 36x performance improvement in critical analytics processes'
+    },
+    {
+      title: 'Leadership & Communication',
+      insight: 'Collaborating with senior stakeholders and presenting technical solutions',
+      impact: 'Enhanced ability to translate complex technical concepts for diverse audiences'
     }
-  }
-
-  const getCategoryColor = (category: string) => {
-    switch (category) {
-      case 'Technical Excellence': return 'from-blue-500 to-indigo-600'
-      case 'Enterprise Architecture': return 'from-emerald-500 to-teal-600'
-      case 'Process Innovation': return 'from-orange-500 to-red-600'
-      case 'Leadership Insights': return 'from-purple-500 to-pink-600'
-      default: return 'from-gray-500 to-gray-600'
-    }
-  }
+  ]
 
   return (
     <Section id="deep-dives" variant="snap">
-      <div className="min-h-screen flex items-center">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-20">
+      <div className="min-h-screen bg-gray-50">
+        <div className="container-max section-padding">
+          {/* Header */}
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-20"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">
-              Professional Development
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              What I Learned
             </h2>
-            <p className="text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
-              Comprehensive learnings and strategic recommendations from enterprise-scale experience
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Key insights and professional growth from enterprise experience
             </p>
           </motion.div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {Object.entries(categories).map(([categoryName, categoryExperiences], categoryIndex) => (
+          {/* Learning Cards */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
+            {keyLearnings.map((learning, index) => (
               <motion.div
-                key={categoryName}
-                className="space-y-6"
+                key={learning.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
+                className="bg-white rounded-xl p-8 shadow-sm border border-gray-200"
               >
-                <div className={`bg-gradient-to-r ${getCategoryColor(categoryName)} rounded-2xl p-6 text-white`}>
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-2xl">{getCategoryIcon(categoryName)}</span>
-                    <h3 className="text-2xl font-bold">{categoryName}</h3>
-                  </div>
-                  <p className="text-white/90 text-sm font-medium">
-                    {categoryExperiences.length} key {categoryExperiences.length === 1 ? 'learning' : 'learnings'}
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  {learning.title}
+                </h3>
+                <p className="text-gray-600 mb-4 leading-relaxed">
+                  {learning.insight}
+                </p>
+                <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+                  <p className="text-blue-800 font-medium text-sm">
+                    <span className="text-blue-600">Impact:</span> {learning.impact}
                   </p>
-                </div>
-
-                <div className="space-y-4">
-                  {categoryExperiences.map((experience) => (
-                    <motion.div
-                      key={experience.id}
-                      className="bg-white/90 backdrop-blur-sm rounded-xl shadow-md hover:shadow-lg border border-slate-200/50 p-6 transition-all duration-300 hover:-translate-y-1 group"
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <div className="flex items-start justify-between mb-3">
-                        <h4 className="text-lg font-bold text-slate-900 group-hover:text-blue-700 transition-colors">
-                          {experience.title}
-                        </h4>
-                        <span className="text-xs text-slate-500 font-medium bg-slate-100 px-2 py-1 rounded-full">
-                          {experience.when}
-                        </span>
-                      </div>
-                      
-                      <p className="text-slate-600 text-sm leading-relaxed mb-4">
-                        {experience.summary}
-                      </p>
-                      
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {experience.tech.slice(0, 3).map((tech, techIndex) => (
-                          <span 
-                            key={techIndex}
-                            className="px-2 py-1 bg-slate-100 text-slate-700 rounded text-xs font-medium"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                        {experience.tech.length > 3 && (
-                          <span className="px-2 py-1 bg-slate-100 text-slate-500 rounded text-xs">
-                            +{experience.tech.length - 3} more
-                          </span>
-                        )}
-                      </div>
-                      
-                      <div className="text-xs text-emerald-700 font-medium bg-emerald-50 px-3 py-2 rounded border border-emerald-200/50">
-                        💡 {experience.impact}
-                      </div>
-                    </motion.div>
-                  ))}
                 </div>
               </motion.div>
             ))}
           </div>
 
-          {/* Strategic Recommendations Section */}
+          {/* Recommendations */}
           <motion.div
-            className="mt-20 pt-16 border-t border-slate-200"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
           >
             <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold text-slate-900 mb-4">
-                Strategic Recommendations
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                My Recommendations
               </h3>
-              <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-                Actionable insights for organizational enhancement and operational excellence
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                Strategic insights for organizational improvement
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {Object.entries(recommendations).map(([category, items]) => (
-                <div key={category} className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-slate-200/50 p-6">
-                  <h4 className="text-lg font-bold text-slate-900 mb-4 capitalize">
+                <div key={category} className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+                  <h4 className="text-lg font-semibold text-gray-900 mb-4">
                     {category.replace(/([A-Z])/g, ' $1').trim()}
                   </h4>
                   <ul className="space-y-3">
                     {items.map((item, itemIndex) => (
                       <li key={itemIndex} className="flex items-start">
-                        <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                        <span className="text-sm text-slate-700 leading-relaxed">{item}</span>
+                        <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                        <span className="text-sm text-gray-700 leading-relaxed">{item}</span>
                       </li>
                     ))}
                   </ul>

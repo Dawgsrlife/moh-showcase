@@ -1,74 +1,118 @@
 import { motion } from 'framer-motion'
-import { staggerContainer, staggerItem } from '../lib/motion'
 import Section from '../components/Section'
-import Card from '../components/Card'
 import { experiences } from '../data/experiences'
 
 const Tools = () => {
-  // Extract unique technologies from experiences
+  // Extract and categorize technologies
   const allTech = experiences.flatMap(exp => exp.tech)
   const uniqueTech = Array.from(new Set(allTech))
+  
+  const categories = [
+    {
+      name: 'Cloud & Infrastructure',
+      techs: uniqueTech.filter(tech => 
+        ['AWS', 'SAS Viya', 'EC2', 'S3', 'IAM', 'CloudFormation', 'Kubernetes'].includes(tech)
+      )
+    },
+    {
+      name: 'Programming & Automation',
+      techs: uniqueTech.filter(tech => 
+        ['Python', 'SQL', 'PowerShell', 'Bash', 'JavaScript', 'Git'].includes(tech)
+      )
+    },
+    {
+      name: 'Analytics & Business Intelligence',
+      techs: uniqueTech.filter(tech => 
+        ['SAS', 'Power BI', 'Tableau', 'Excel', 'R'].includes(tech)
+      )
+    }
+  ]
 
   return (
     <Section id="tools" variant="snap">
-      <div className="min-h-screen flex items-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="min-h-screen bg-gray-50">
+        <div className="container-max section-padding">
           <motion.div
-            className="text-center mb-16"
+            className="text-center space-y-4 mb-20"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Tools & Technologies
+            <h2 className="text-4xl md:text-5xl font-bold">
+              Technologies
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Technologies I've used throughout my internship
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Tools and technologies used in enterprise projects
             </p>
           </motion.div>
           
-          <motion.div
-            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 mb-16"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {uniqueTech.map((tech, index) => (
+          {/* Technology Grid */}
+          <div className="grid-responsive-3 mb-20">
+            {categories.map((category, categoryIndex) => (
               <motion.div
-                key={tech}
-                className="bg-white rounded-lg shadow-md p-4 flex items-center justify-center"
-                variants={staggerItem}
-                transition={{ delay: index * 0.05 }}
-                whileHover={{ y: -5 }}
+                key={category.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
+                viewport={{ once: true }}
+                className="space-y-6"
               >
-                <span className="text-lg font-medium text-gray-800">{tech}</span>
+                <h3 className="text-xl font-semibold text-center">
+                  {category.name}
+                </h3>
+                <div className="space-y-3">
+                  {category.techs.map((tech) => (
+                    <div
+                      key={tech}
+                      className="px-4 py-3 bg-gray-50 rounded-lg text-center font-medium text-gray-700 border border-gray-200 hover:border-gray-300 transition-colors"
+                    >
+                      {tech}
+                    </div>
+                  ))}
+                </div>
               </motion.div>
             ))}
-          </motion.div>
-          
+          </div>
+
+          {/* Key Projects Summary */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
+            className="text-center space-y-8"
           >
-            {experiences.slice(0, 3).map((experience, index) => (
-              <motion.div
-                key={experience.id}
-                variants={staggerItem}
-                transition={{ delay: index * 0.1 }}
-              >
-                <Card
-                  title={experience.title}
-                  subtitle={experience.when}
-                  tags={experience.tech}
-                  bullets={[experience.summary]}
-                />
-              </motion.div>
-            ))}
+            <h3 className="text-2xl font-bold">
+              Technical Focus Areas
+            </h3>
+            <div className="grid-responsive-3">
+              {[
+                {
+                  title: 'Cloud Migration',
+                  description: 'Enterprise SAS Viya deployment and AWS infrastructure optimization',
+                  icon: '☁️'
+                },
+                {
+                  title: 'Process Automation',
+                  description: 'Python scripting and PowerShell automation for operational efficiency',
+                  icon: '⚡'
+                },
+                {
+                  title: 'Data Analytics',
+                  description: 'Performance analysis and quality assurance for analytics workflows',
+                  icon: '📊'
+                }
+              ].map((area) => (
+                <div key={area.title} className="text-center space-y-4">
+                  <div className="text-4xl">{area.icon}</div>
+                  <h4 className="text-lg font-semibold">{area.title}</h4>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {area.description}
+                  </p>
+                </div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>

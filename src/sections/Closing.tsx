@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import { slideUp } from '../lib/motion'
 import Section from '../components/Section'
 
 interface ClosingProps {
@@ -9,83 +8,103 @@ interface ClosingProps {
 const Closing = ({ timeEnded }: ClosingProps) => {
   return (
     <Section id="closing" variant="snap">
-      <div className="min-h-screen flex items-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <motion.div
-            className="text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <motion.h2
-              className="text-3xl md:text-4xl font-bold text-gray-900 mb-6"
-              variants={slideUp}
-            >
-              {timeEnded ? 'Time Complete!' : 'Thank You'}
-            </motion.h2>
-            
-            <motion.p
-              className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto"
-              variants={slideUp}
-            >
-              {timeEnded
-                ? 'You\'ve reached the end of my showcase. I hope you enjoyed exploring my work!'
-                : 'Thank you for taking the time to explore my internship experience.'}
-            </motion.p>
-            
+      <div className="min-h-screen bg-white">
+        <div className="container-max section-padding flex items-center justify-center min-h-screen">
+          <div className="text-center max-w-4xl">
+            {/* Main Message */}
             <motion.div
-              className="flex flex-col sm:flex-row justify-center gap-4"
-              variants={slideUp}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="space-y-8 mb-20"
             >
-              <a
-                href="mailto:example@email.com"
-                className="px-8 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-              >
-                Get in Touch
-              </a>
-              
-              <a
-                href="/resume.pdf"
-                className="px-8 py-3 bg-white text-blue-600 border border-blue-600 rounded-lg font-medium hover:bg-blue-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-              >
-                Download Resume
-              </a>
+              <h2 className="text-5xl md:text-6xl font-bold leading-tight">
+                {timeEnded ? 'Thank You for Your Time!' : 'Thank You'}
+              </h2>
+              <p className="text-xl text-gray-600">
+                For this incredible opportunity to grow and contribute
+              </p>
             </motion.div>
-            
+
+            {/* Key Outcomes */}
             <motion.div
-              className="mt-12 pt-8 border-t border-gray-200"
-              variants={slideUp}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="grid-responsive-3 mb-20"
             >
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Connect with me</h3>
-              <div className="flex justify-center space-x-6">
-                <a
-                  href="#"
-                  className="text-gray-500 hover:text-blue-600 transition-colors"
-                  aria-label="LinkedIn"
-                >
-                  <span className="sr-only">LinkedIn</span>
-                  <div className="w-6 h-6 bg-gray-300 rounded-full"></div>
-                </a>
-                <a
-                  href="#"
-                  className="text-gray-500 hover:text-blue-600 transition-colors"
-                  aria-label="GitHub"
-                >
-                  <span className="sr-only">GitHub</span>
-                  <div className="w-6 h-6 bg-gray-300 rounded-full"></div>
-                </a>
-                <a
-                  href="#"
-                  className="text-gray-500 hover:text-blue-600 transition-colors"
-                  aria-label="Twitter"
-                >
-                  <span className="sr-only">Twitter</span>
-                  <div className="w-6 h-6 bg-gray-300 rounded-full"></div>
-                </a>
+              <div className="text-center space-y-2">
+                <div className="text-4xl font-bold">5</div>
+                <div className="text-sm text-gray-600">Months Experience</div>
+              </div>
+              <div className="text-center space-y-2">
+                <div className="text-4xl font-bold">36×</div>
+                <div className="text-sm text-gray-600">Performance Gain</div>
+              </div>
+              <div className="text-center space-y-2">
+                <div className="text-4xl font-bold">90%</div>
+                <div className="text-sm text-gray-600">Automation</div>
               </div>
             </motion.div>
-          </motion.div>
+
+            {/* Future Focus */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              viewport={{ once: true }}
+              className="space-y-6 mb-20"
+            >
+              <h3 className="text-2xl font-bold">
+                Looking Forward
+              </h3>
+              <p className="text-gray-600 leading-relaxed max-w-3xl mx-auto">
+                Ready to apply these enterprise insights and technical skills to drive innovation 
+                in cloud architecture, automation, and data analytics. Excited about continuing 
+                to contribute to meaningful projects that make a difference.
+              </p>
+            </motion.div>
+
+            {/* Contact */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.9 }}
+              viewport={{ once: true }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-20"
+            >
+              <a 
+                href="mailto:alexanderhemeng@gmail.com" 
+                className="btn btn-primary"
+              >
+                Get In Touch
+              </a>
+              <button
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                className="btn btn-secondary"
+              >
+                Back to Top
+              </button>
+            </motion.div>
+
+            {/* Footer */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 1.2 }}
+              viewport={{ once: true }}
+              className="pt-8 border-t border-gray-200 space-y-2"
+            >
+              <h3 className="text-lg font-bold">
+                Alexander He Meng
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Technical Intern • Ontario Ministry of Public & Business Service Delivery & Procurement
+              </p>
+            </motion.div>
+          </div>
         </div>
       </div>
     </Section>

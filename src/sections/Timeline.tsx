@@ -1,110 +1,108 @@
 import { motion } from 'framer-motion'
-import { staggerContainer, staggerItem } from '../lib/motion'
 import Section from '../components/Section'
 import { milestones } from '../data/milestones'
 
-const Timeline = () => {
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString)
-    return date.toLocaleDateString('en-US', { 
-      month: 'short', 
-      day: 'numeric',
-      year: 'numeric'
-    })
-  }
+interface TimelineItemProps {
+  milestone: any
+  index: number
+}
 
+const TimelineItem = ({ milestone, index }: TimelineItemProps) => (
+  <motion.div
+    initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true, margin: '-100px' }}
+    transition={{ duration: 0.8, delay: index * 0.1 }}
+    className="relative"
+  >
+    {/* Timeline connector line */}
+    <div className="absolute left-6 top-8 bottom-0 w-0.5 bg-gradient-to-b from-blue-400 to-purple-400 opacity-30"></div>
+    
+    {/* Timeline dot */}
+    <div className="absolute left-4 top-6 w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full border-4 border-white shadow-lg"></div>
+
+    <div className="pl-16 card">
+      {/* Date Badge */}
+      <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-full mb-4">
+        <time className="text-sm text-blue-700 font-semibold">
+          {new Date(milestone.date).toLocaleDateString('en-US', { 
+            month: 'short', 
+            year: 'numeric'
+          })}
+        </time>
+      </div>
+
+      <div className="space-y-6">
+        <h3 className="text-2xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+          {milestone.title}
+        </h3>
+        
+        <p className="text-gray-600 leading-relaxed text-lg">
+          {milestone.description}
+        </p>
+
+        {milestone.impact && (
+          <div className="relative pl-6">
+            <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-green-400 to-blue-500 rounded-full"></div>
+            <div className="bg-gradient-to-r from-green-50 to-blue-50 p-4 rounded-lg border border-green-200">
+              <p className="text-gray-800 font-semibold">
+                💡 {milestone.impact}
+              </p>
+            </div>
+          </div>
+        )}
+
+        {milestone.technologies && (
+          <div className="flex flex-wrap gap-3">
+            {milestone.technologies.map((tech: string, techIndex: number) => (
+              <span 
+                key={techIndex}
+                className="px-4 py-2 text-sm font-medium bg-gradient-to-r from-gray-100 to-gray-50 text-gray-700 rounded-full border border-gray-200 hover:from-blue-50 hover:to-purple-50 hover:border-blue-200 transition-all duration-300"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  </motion.div>
+)
+
+const Timeline = () => {
   return (
     <Section id="timeline" variant="snap">
-      <div className="min-h-screen flex items-center">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-20">
+      <div className="min-h-screen relative">
+        {/* Background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-blue-50"></div>
+        
+        <div className="container-max section-padding relative z-10">
           <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center space-y-6 mb-20"
           >
-            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">
-              Technical Journey
+            <h2 className="text-4xl md:text-5xl font-bold">
+              What I Accomplished
             </h2>
-            <p className="text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
-              Critical milestones in enterprise SAS Viya migration and infrastructure optimization
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+              Key technical milestones and achievements during my internship
             </p>
           </motion.div>
-          
-          <motion.div
-            className="relative"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {/* Timeline line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-indigo-500 to-emerald-500 hidden lg:block"></div>
-            
+
+          <div className="max-w-4xl mx-auto">
             <div className="space-y-12">
               {milestones.map((milestone, index) => (
-                <motion.div
+                <TimelineItem
                   key={milestone.id}
-                  variants={staggerItem}
-                  transition={{ delay: index * 0.1 }}
-                  className="relative flex items-start lg:ml-16"
-                >
-                  {/* Timeline dot */}
-                  <div className="absolute -left-16 top-8 w-4 h-4 bg-white border-4 border-blue-500 rounded-full shadow-lg hidden lg:block"></div>
-                  
-                  <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl border border-slate-200/50 p-8 transition-all duration-300 hover:-translate-y-1 w-full group">
-                    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-4 mb-4">
-                          <time className="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-sm font-medium border border-blue-200/50">
-                            {formatDate(milestone.date)}
-                          </time>
-                          {milestone.impact && (
-                            <span className="text-xs text-emerald-600 font-medium uppercase tracking-wide">
-                              {milestone.impact.split(' ').slice(0, 3).join(' ')}
-                            </span>
-                          )}
-                        </div>
-                        
-                        <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-blue-700 transition-colors">
-                          {milestone.title}
-                        </h3>
-                        
-                        <p className="text-slate-600 leading-relaxed mb-4 font-medium">
-                          {milestone.description}
-                        </p>
-                        
-                        {milestone.impact && (
-                          <div className="text-sm text-emerald-700 font-medium bg-emerald-50 px-3 py-2 rounded-lg border border-emerald-200/50">
-                            💡 {milestone.impact}
-                          </div>
-                        )}
-                      </div>
-                      
-                      {milestone.technologies && (
-                        <div className="lg:w-64 flex-shrink-0">
-                          <h4 className="text-sm font-semibold text-slate-700 mb-3 uppercase tracking-wide">
-                            Technologies
-                          </h4>
-                          <div className="flex flex-wrap gap-2">
-                            {milestone.technologies.map((tech, techIndex) => (
-                              <span 
-                                key={techIndex}
-                                className="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm font-medium border border-slate-200/50 hover:bg-slate-200 transition-colors"
-                              >
-                                {tech}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </motion.div>
+                  milestone={milestone}
+                  index={index}
+                />
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </Section>

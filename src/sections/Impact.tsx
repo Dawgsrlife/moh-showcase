@@ -1,129 +1,108 @@
 import { motion } from 'framer-motion'
-import { staggerContainer, staggerItem } from '../lib/motion'
 import Section from '../components/Section'
 import Metric from '../components/Metric'
 import { metrics } from '../data/metrics'
 
 const Impact = () => {
-  const groupedMetrics = {
-    impact: metrics.filter(m => m.category === 'impact'),
-    performance: metrics.filter(m => m.category === 'performance'),
-    scale: metrics.filter(m => m.category === 'scale'),
-    quality: metrics.filter(m => m.category === 'quality')
-  }
-
-  const getCategoryTitle = (category: string) => {
-    switch (category) {
-      case 'impact': return 'Provincial Impact'
-      case 'performance': return 'Performance Gains'
-      case 'scale': return 'Enterprise Scale'
-      case 'quality': return 'Quality Assurance'
-      default: return category
-    }
-  }
-
-  const getCategoryIcon = (category: string) => {
-    switch (category) {
-      case 'impact': return '🏛️'
-      case 'performance': return '⚡'
-      case 'scale': return '📊'
-      case 'quality': return '✅'
-      default: return '📈'
-    }
-  }
-
-  const getCategoryColor = (category: string) => {
-    switch (category) {
-      case 'impact': return 'from-emerald-500 to-teal-600'
-      case 'performance': return 'from-blue-500 to-indigo-600'
-      case 'scale': return 'from-purple-500 to-pink-600'
-      case 'quality': return 'from-orange-500 to-red-600'
-      default: return 'from-gray-500 to-gray-600'
-    }
-  }
-
   return (
     <Section id="impact" variant="snap">
-      <div className="min-h-screen flex items-center">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-20">
+      <div className="min-h-screen relative overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-white to-cyan-50"></div>
+        
+        {/* Floating elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/3 right-1/4 w-40 h-40 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        </div>
+
+        <div className="container-max section-padding relative z-10">
           <motion.div
-            className="text-center mb-16"
+            className="text-center space-y-6 mb-20"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">
-              Quantifiable Impact
+            <h2 className="text-4xl md:text-5xl font-bold">
+              Impact & Results
             </h2>
-            <p className="text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
-              Measurable contributions to Ontario's enterprise analytics infrastructure
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+              Measurable outcomes from enterprise analytics projects
             </p>
           </motion.div>
           
-          <div className="space-y-12">
-            {Object.entries(groupedMetrics).map(([category, categoryMetrics], categoryIndex) => 
-              categoryMetrics.length > 0 && (
-                <motion.div
-                  key={category}
-                  className="space-y-6"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <div className={`bg-gradient-to-r ${getCategoryColor(category)} rounded-2xl p-6 text-white`}>
-                    <div className="flex items-center gap-3">
-                      <span className="text-2xl">{getCategoryIcon(category)}</span>
-                      <h3 className="text-2xl font-bold">{getCategoryTitle(category)}</h3>
-                    </div>
-                  </div>
-
-                  <motion.div
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-                    variants={staggerContainer}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                  >
-                    {categoryMetrics.map((metric, index) => (
-                      <motion.div
-                        key={metric.id}
-                        variants={staggerItem}
-                        transition={{ delay: index * 0.1 }}
-                        className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-xl border border-slate-200/50 transition-all duration-300 hover:-translate-y-1"
-                      >
-                        <Metric
-                          value={metric.value}
-                          label={metric.label}
-                          prefix={metric.prefix}
-                          suffix={metric.suffix}
-                          description={metric.description}
-                        />
-                      </motion.div>
-                    ))}
-                  </motion.div>
-                </motion.div>
-              )
-            )}
-          </div>
-
-          {/* Key Achievement Summary */}
+          {/* Metrics Grid */}
           <motion.div
-            className="mt-20 pt-16 border-t border-slate-200"
+            className="grid-responsive-4 mb-20 gap-8"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 rounded-2xl p-8 text-white">
-              <div className="text-center">
-                <h3 className="text-3xl font-bold mb-4">Enterprise Migration Success</h3>
-                <p className="text-xl text-white/90 max-w-4xl mx-auto leading-relaxed">
-                  Successfully contributed to province-wide SAS Viya migration supporting 
-                  <span className="font-bold text-emerald-300"> 14.5 million Ontario residents</span> through 
-                  automated tooling, performance optimization, and comprehensive quality assurance.
+            {metrics.map((metric, index) => (
+              <motion.div
+                key={metric.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="text-center space-y-4 p-8 bg-white/70 backdrop-blur-sm rounded-2xl border border-gray-200 hover:shadow-xl transition-all duration-300"
+              >
+                <Metric
+                  value={metric.value}
+                  label={metric.label}
+                  prefix={metric.prefix}
+                  suffix={metric.suffix}
+                  description={metric.description}
+                />
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Summary */}
+          <motion.div
+            className="max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <div className="text-center space-y-8 p-12 bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white rounded-3xl relative overflow-hidden">
+              {/* Background pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white to-transparent transform rotate-45 translate-x-full animate-pulse"></div>
+              </div>
+              
+              <div className="relative z-10">
+                <div className="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6">
+                  <span className="text-cyan-300 font-semibold">🚀 Enterprise Success</span>
+                </div>
+                
+                <h3 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent">
+                  Province-Wide SAS Viya Migration
+                </h3>
+                
+                <p className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
+                  Successfully contributed to enterprise migration supporting{' '}
+                  <span className="font-bold text-white bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">14.5 million Ontario residents</span>{' '}
+                  through automated tooling, performance optimization, and comprehensive quality assurance.
                 </p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-cyan-400">Automation</div>
+                    <div className="text-gray-400">Tool Development</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-purple-400">Performance</div>
+                    <div className="text-gray-400">Optimization</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-pink-400">Quality</div>
+                    <div className="text-gray-400">Assurance</div>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>

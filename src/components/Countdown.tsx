@@ -44,7 +44,7 @@ const Countdown = ({ onEnded }: CountdownProps) => {
 
   return (
     <motion.div
-      className="fixed top-6 right-6 z-[100] bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-slate-200/50 p-4 flex items-center space-x-4 lg:right-48"
+      className="fixed top-6 left-6 z-50 glass rounded-xl shadow-lg p-4 flex items-center space-x-4"
       initial={{ opacity: 0, scale: 0.8, y: -20 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
@@ -73,10 +73,10 @@ const Countdown = ({ onEnded }: CountdownProps) => {
       </div>
       
       <div className="flex flex-col">
-        <div className="text-lg font-black text-slate-900 tracking-wider">
+        <div className="text-lg font-bold text-gray-900 tracking-wider">
           {formatTime(timeLeft)}
         </div>
-        <div className="text-xs text-slate-500 font-medium uppercase tracking-wide">
+        <div className="text-xs text-gray-500 font-medium uppercase tracking-wide">
           Showcase Timer
         </div>
       </div>

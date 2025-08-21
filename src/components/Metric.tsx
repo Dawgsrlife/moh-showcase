@@ -10,7 +10,6 @@ interface MetricProps {
   prefix?: string
   suffix?: string
   description: string
-  decimals?: number
   className?: string
 }
 
@@ -20,7 +19,6 @@ const Metric = ({
   prefix = '', 
   suffix = '', 
   description, 
-  decimals = 0,
   className = '' 
 }: MetricProps) => {
   const [displayValue, setDisplayValue] = useState(0)
@@ -53,11 +51,11 @@ const Metric = ({
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5 }}
     >
-      <div className="text-5xl font-bold text-blue-600 mb-2">
+      <div className="text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent mb-3">
         {prefix}{formatNumber(displayValue)}{suffix}
       </div>
-      <div className="text-xl font-semibold text-gray-900 mb-2">{label}</div>
-      <div className="text-gray-600">{description}</div>
+      <div className="text-xl font-semibold text-gray-900 mb-3">{label}</div>
+      <div className="text-gray-600 text-sm leading-relaxed">{description}</div>
     </motion.div>
   )
 }

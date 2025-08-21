@@ -3,13 +3,13 @@ import { motion } from 'framer-motion'
 import { 
   Hero, 
   Timeline, 
-  Architecture, 
   Tools, 
   DeepDives, 
   Impact, 
   Closing 
 } from '../sections'
 import { NavDots, AnimatedBackground, Countdown } from '../components'
+import PresentationNav from '../components/PresentationNav'
 
 const Routes = () => {
   const [timeEnded, setTimeEnded] = useState(false)
@@ -28,11 +28,11 @@ const Routes = () => {
       <AnimatedBackground />
       <Countdown onEnded={handleTimeEnd} />
       <NavDots />
+      <PresentationNav />
       
       <main id="main-content">
         <Hero />
         <Timeline />
-        <Architecture />
         <Tools />
         <DeepDives />
         <Impact />
