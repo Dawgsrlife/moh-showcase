@@ -10,7 +10,7 @@ import {
   Impact, 
   Closing 
 } from '../sections'
-import { NavDots, AnimatedBackground, Countdown } from '../components'
+import { NavDots, Countdown } from '../components'
 
 const Routes = () => {
   const [timeEnded, setTimeEnded] = useState(false)
@@ -31,7 +31,6 @@ const Routes = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1, ease: "easeOut" }}
     >
-      <AnimatedBackground />
       <div className="countdown-container">
         <Countdown onEnded={handleTimeEnd} startTimer={timerStarted} />
       </div>

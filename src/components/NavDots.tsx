@@ -31,7 +31,7 @@ const NavDots = () => {
       // Try to use Lenis first, fallback to native scrollTo
       try {
         // Check if Lenis is available on window
-        const lenis = (window as any).lenis
+        const lenis = (window as unknown as { lenis?: { scrollTo: (target: HTMLElement, options?: { duration?: number }) => void } }).lenis
         if (lenis) {
           lenis.scrollTo(section, { duration: 1.5 })
         } else {
@@ -45,7 +45,7 @@ const NavDots = () => {
             behavior: 'smooth'
           })
         }
-      } catch (error) {
+      } catch {
         // Fallback to native smooth scroll
         const headerOffset = 80
         const elementPosition = section.offsetTop

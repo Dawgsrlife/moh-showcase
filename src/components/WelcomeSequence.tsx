@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 interface WelcomeSequenceProps {
@@ -9,7 +9,7 @@ interface WelcomeSequenceProps {
 const WelcomeSequence = ({ onComplete, allowSkip = true }: WelcomeSequenceProps) => {
   const [currentStep, setCurrentStep] = useState(0)
 
-  const welcomeSteps = [
+  const welcomeSteps = useMemo(() => [
     {
       id: 'greeting',
       content: (
@@ -91,7 +91,7 @@ const WelcomeSequence = ({ onComplete, allowSkip = true }: WelcomeSequenceProps)
       ),
       duration: 2200
     }
-  ]
+  ], [])
 
   useEffect(() => {
     if (currentStep < welcomeSteps.length) {
@@ -218,7 +218,7 @@ const WelcomeSequence = ({ onComplete, allowSkip = true }: WelcomeSequenceProps)
       <div className="absolute bottom-12 left-1/2 -translate-x-1/2">
         <div className="flex flex-col items-center space-y-4">
           <div className="flex justify-center space-x-3">
-            {welcomeSteps.map((_, index) => (
+            {welcomeSteps.map((_, index: number) => (
               <motion.div
                 key={index}
                 className={`w-2 h-2 rounded-full transition-all duration-500 ${

@@ -81,14 +81,14 @@ const TechnicalShowcase = () => {
                       <img 
                         src={image.image}
                         alt={image.imageAlt}
-                        className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110 cursor-pointer"
+                        className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110 cursor-pointer relative z-10"
                         loading="lazy"
                         onClick={() => openImageModal(image.image, image.imageAlt, image.title)}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                       
                       {/* Category Badge */}
-                      <div className="absolute top-6 left-6">
+                      <div className="absolute top-6 left-6 pointer-events-none z-20">
                         <span className={`px-4 py-2 rounded-full text-sm font-semibold ${
                           image.category === 'technical' ? 'bg-blue-100 text-blue-700' :
                           image.category === 'testing' ? 'bg-green-100 text-green-700' :
@@ -100,7 +100,7 @@ const TechnicalShowcase = () => {
                       </div>
 
                       {/* Click hint */}
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                         <div className="bg-black/50 text-white px-4 py-2 rounded-lg text-sm font-medium">
                           Click to expand
                         </div>

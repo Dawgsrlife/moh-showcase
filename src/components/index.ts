@@ -1,4 +1,3 @@
-export { default as AnimatedBackground } from './AnimatedBackground'
 export { default as Card } from './Card'
 export { default as Countdown } from './Countdown'
 export { default as ImageModal } from './ImageModal'

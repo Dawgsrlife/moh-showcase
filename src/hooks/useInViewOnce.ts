@@ -10,6 +10,9 @@ export const useInViewOnce = (options: IntersectionObserverInit = {}) => {
       return
     }
 
+    // Store the current ref value to use in cleanup
+    const currentRef = ref.current
+
     // Create observer
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
@@ -20,14 +23,14 @@ export const useInViewOnce = (options: IntersectionObserverInit = {}) => {
     }, options)
 
     // Observe the element
-    if (ref.current) {
-      observer.observe(ref.current)
+    if (currentRef) {
+      observer.observe(currentRef)
     }
 
     // Cleanup
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current)
+      if (currentRef) {
+        observer.unobserve(currentRef)
       }
     }
   }, [options])

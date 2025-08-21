@@ -39,7 +39,7 @@ export const useLenis = (enabled: boolean = true) => {
         })
 
         // Make Lenis instance globally available
-        ;(window as any).lenis = lenisRef.current
+        ;(window as unknown as { lenis: LenisInstance }).lenis = lenisRef.current
 
         // Connect Lenis to requestAnimationFrame
         const raf = (time: number) => {
