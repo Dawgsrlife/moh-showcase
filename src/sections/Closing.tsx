@@ -35,7 +35,7 @@ const Closing = ({ timeEnded }: ClosingProps) => {
               <h2 className="text-5xl md:text-6xl font-bold leading-tight text-white">
                 {timeEnded ? 'Thank You for Your Time!' : 'Thank You'}
               </h2>
-              <p className="text-xl text-gray-200">
+              <p className="text-xl text-white/90">
                 For this incredible opportunity to grow and contribute
               </p>
               
@@ -161,7 +161,7 @@ const Closing = ({ timeEnded }: ClosingProps) => {
                 Alexander He Meng
               </h3>
               <p className="text-gray-300 text-sm">
-                Technical Intern • Ontario Ministry of Public & Business Service Delivery & Procurement
+                Application Programmer (Co-op) • Ontario Ministry of Public & Business Service Delivery & Procurement
               </p>
               
               {/* Decorative elements */}
@@ -171,6 +171,13 @@ const Closing = ({ timeEnded }: ClosingProps) => {
                 <div className="w-2 h-2 bg-pink-400 rounded-full animate-pulse delay-600"></div>
               </div>
             </motion.div>
+          </div>
+        </div>
+        
+        {/* Footer */}
+        <div className="mt-16 pt-8 border-t border-white/20">
+          <div className="text-center text-white/70 text-sm">
+            <p>© 2025 @alexanderthemango</p>
           </div>
         </div>
       </div>

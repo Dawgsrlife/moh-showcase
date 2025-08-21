@@ -79,28 +79,28 @@ const Impact = () => {
                   <span className="text-cyan-300 font-semibold">Enterprise Success</span>
                 </div>
                 
-                <h3 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent">
+                <h3 className="text-3xl font-bold mb-6 text-white">
                   Province-Wide SAS Viya Migration
                 </h3>
                 
-                <p className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
+                <p className="text-xl text-white/90 leading-relaxed max-w-3xl mx-auto">
                   Contributed to enterprise migration supporting{' '}
-                  <span className="font-bold text-white bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">14.5 million Ontario residents</span>{' '}
+                  <span className="font-bold text-cyan-400">14.5 million Ontario residents</span>{' '}
                   through testing support, automation tooling, and quality assurance activities.
                 </p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
                   <div className="text-center">
                     <div className="text-2xl font-bold text-cyan-400">Automation</div>
-                    <div className="text-gray-400">Tool Development</div>
+                    <div className="text-white/80">Tool Development</div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold text-purple-400">Testing</div>
-                    <div className="text-gray-400">Quality Assurance</div>
+                    <div className="text-white/80">Quality Assurance</div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold text-pink-400">Quality</div>
-                    <div className="text-gray-400">Assurance</div>
+                    <div className="text-white/80">Assurance</div>
                   </div>
                 </div>
               </div>

@@ -8,8 +8,7 @@ import { SkipLink, WelcomeSequence } from '../components'
 const App = () => {
   // Initialize Lenis for smooth scrolling (but only after welcome)
   const { isWelcomeActive, completeWelcome } = useWelcomeSequence({
-    autoStart: true,
-    skipOnRevisit: true
+    autoStart: true
   })
   
   // Only initialize Lenis after welcome sequence

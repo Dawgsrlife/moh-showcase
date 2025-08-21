@@ -11,13 +11,17 @@ import {
   Closing 
 } from '../sections'
 import { NavDots, AnimatedBackground, Countdown } from '../components'
-import PresentationNav from '../components/PresentationNav'
 
 const Routes = () => {
   const [timeEnded, setTimeEnded] = useState(false)
+  const [timerStarted, setTimerStarted] = useState(false)
 
   const handleTimeEnd = () => {
     setTimeEnded(true)
+  }
+
+  const startTimer = () => {
+    setTimerStarted(true)
   }
 
   return (
@@ -29,13 +33,12 @@ const Routes = () => {
     >
       <AnimatedBackground />
       <div className="countdown-container">
-        <Countdown onEnded={handleTimeEnd} />
+        <Countdown onEnded={handleTimeEnd} startTimer={timerStarted} />
       </div>
       <NavDots />
-      <PresentationNav />
       
       <main id="main-content">
-        <Hero />
+        <Hero onStartTimer={startTimer} />
         <Timeline />
         <Tools />
         <Team />

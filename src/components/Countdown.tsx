@@ -3,12 +3,20 @@ import { motion } from 'framer-motion'
 
 interface CountdownProps {
   onEnded?: () => void
+  startTimer?: boolean
 }
 
-const Countdown = ({ onEnded }: CountdownProps) => {
+const Countdown = ({ onEnded, startTimer = false }: CountdownProps) => {
   const [timeLeft, setTimeLeft] = useState(5 * 60) // 5 minutes in seconds
-  const [isRunning, setIsRunning] = useState(true)
+  const [isRunning, setIsRunning] = useState(false)
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
+
+  // Start timer when startTimer prop becomes true
+  useEffect(() => {
+    if (startTimer && !isRunning && timeLeft > 0) {
+      setIsRunning(true)
+    }
+  }, [startTimer, isRunning, timeLeft])
 
   useEffect(() => {
     if (!isRunning || timeLeft <= 0) return

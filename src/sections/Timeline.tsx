@@ -1,13 +1,16 @@
 import { motion } from 'framer-motion'
+import { useState } from 'react'
 import Section from '../components/Section'
+import ImageModal from '../components/ImageModal'
 import { milestones, type Milestone } from '../data/milestones'
 
 interface TimelineItemProps {
   milestone: Milestone
   index: number
+  onImageClick: (src: string, alt: string, title: string) => void
 }
 
-const TimelineItem = ({ milestone, index }: TimelineItemProps) => (
+const TimelineItem = ({ milestone, index, onImageClick }: TimelineItemProps) => (
   <motion.div
     initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
     whileInView={{ opacity: 1, x: 0 }}
@@ -43,7 +46,8 @@ const TimelineItem = ({ milestone, index }: TimelineItemProps) => (
 
         {/* Image Display */}
         {milestone.image && (
-          <div className="relative rounded-xl overflow-hidden border border-gray-200 shadow-lg group">
+          <div className="relative rounded-xl overflow-hidden border border-gray-200 shadow-lg group cursor-pointer"
+               onClick={() => onImageClick(milestone.image!, milestone.imageAlt || milestone.title, milestone.title)}>
             <img 
               src={milestone.image}
               alt={milestone.imageAlt || milestone.title}
@@ -51,6 +55,13 @@ const TimelineItem = ({ milestone, index }: TimelineItemProps) => (
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            
+            {/* Click hint */}
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="bg-black/50 text-white px-4 py-2 rounded-lg text-sm font-medium">
+                Click to expand
+              </div>
+            </div>
           </div>
         )}
 
@@ -83,42 +94,66 @@ const TimelineItem = ({ milestone, index }: TimelineItemProps) => (
 )
 
 const Timeline = () => {
-  return (
-    <Section id="timeline" variant="snap">
-      <div className="min-h-screen relative">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-blue-50"></div>
-        
-        <div className="container-max section-padding relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center space-y-6 mb-20"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold">
-              What I Accomplished
-            </h2>
-            <p className="text-gray-700 max-w-2xl mx-auto text-lg">
-              Key technical milestones and achievements during my internship
-            </p>
-          </motion.div>
+  const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string; title: string } | null>(null)
 
-          <div className="max-w-4xl mx-auto">
-            <div className="space-y-12">
-              {milestones.map((milestone, index) => (
-                <TimelineItem
-                  key={milestone.id}
-                  milestone={milestone}
-                  index={index}
-                />
-              ))}
+  const openImageModal = (src: string, alt: string, title: string) => {
+    setSelectedImage({ src, alt, title })
+  }
+
+  const closeImageModal = () => {
+    setSelectedImage(null)
+  }
+
+  return (
+    <>
+      <Section id="timeline" variant="snap">
+        <div className="min-h-screen relative">
+          {/* Background gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-blue-50"></div>
+          
+          <div className="container-max section-padding relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="text-center space-y-6 mb-20"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold">
+                What I Accomplished
+              </h2>
+              <p className="text-gray-700 max-w-2xl mx-auto text-lg">
+                Key technical milestones and achievements during my internship
+              </p>
+            </motion.div>
+
+            <div className="max-w-4xl mx-auto">
+              <div className="space-y-12">
+                {milestones.map((milestone, index) => (
+                  <TimelineItem
+                    key={milestone.id}
+                    milestone={milestone}
+                    index={index}
+                    onImageClick={openImageModal}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </Section>
+      </Section>
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <ImageModal
+          isOpen={!!selectedImage}
+          onClose={closeImageModal}
+          src={selectedImage.src}
+          alt={selectedImage.alt}
+          title={selectedImage.title}
+        />
+      )}
+    </>
   )
 }
 

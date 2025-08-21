@@ -42,14 +42,14 @@ const PresentationNav = () => {
     return () => observer.disconnect()
   }, [])
 
-  // Add effect to push countdown up when nav expands
+  // Add effect to push nav dots aside when nav expands
   useEffect(() => {
-    const countdown = document.querySelector('.countdown-container')
-    if (countdown) {
+    const navDots = document.querySelector('.nav-dots-container')
+    if (navDots) {
       if (isExpanded) {
-        countdown.classList.add('countdown-pushed-down')
+        navDots.classList.add('nav-dots-pushed')
       } else {
-        countdown.classList.remove('countdown-pushed-down')
+        navDots.classList.remove('nav-dots-pushed')
       }
     }
   }, [isExpanded])

@@ -8,23 +8,14 @@ interface UseWelcomeSequenceOptions {
 
 export const useWelcomeSequence = (options: UseWelcomeSequenceOptions = {}) => {
   const {
-    autoStart = true,
-    skipOnRevisit = true
+    autoStart = true
   } = options
 
   const [isWelcomeActive, setIsWelcomeActive] = useState(false)
   const [hasSeenWelcome, setHasSeenWelcome] = useState(false)
 
   useEffect(() => {
-    // Check if user has seen welcome before (in this session)
-    const hasSeenBefore = sessionStorage.getItem('moh-showcase-welcome-seen') === 'true'
-    
-    if (skipOnRevisit && hasSeenBefore) {
-      setHasSeenWelcome(true)
-      setIsWelcomeActive(false)
-      return
-    }
-
+    // Always show welcome sequence on every visit
     if (autoStart) {
       // Small delay to ensure smooth initialization
       const timer = setTimeout(() => {
@@ -33,7 +24,7 @@ export const useWelcomeSequence = (options: UseWelcomeSequenceOptions = {}) => {
 
       return () => clearTimeout(timer)
     }
-  }, [autoStart, skipOnRevisit])
+  }, [autoStart])
 
   const completeWelcome = () => {
     setIsWelcomeActive(false)

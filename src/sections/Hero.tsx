@@ -3,7 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { gsap } from 'gsap'
 import Section from '../components/Section'
 
-const Hero = () => {
+interface HeroProps {
+  onStartTimer?: () => void
+}
+
+const Hero = ({ onStartTimer }: HeroProps) => {
   const nameRef = useRef<HTMLDivElement>(null)
   const [animationComplete, setAnimationComplete] = useState(false)
   const [showContent, setShowContent] = useState(false)
@@ -143,35 +147,17 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.8 }}
-                    className="flex flex-col sm:flex-row items-center justify-center gap-6"
+                    className="flex justify-center"
                   >
                     <button
                       onClick={() => {
                         document.getElementById('timeline')?.scrollIntoView({ behavior: 'smooth' })
+                        if (onStartTimer) onStartTimer()
                       }}
                       className="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 cursor-pointer"
                     >
                       Begin Presentation
                     </button>
-                    
-                    <button
-                      onClick={() => setShowContent(false)}
-                      className="px-6 py-3 text-slate-300 hover:text-white border border-slate-600 hover:border-slate-400 rounded-lg transition-all duration-300 font-medium cursor-pointer"
-                    >
-                      Skip Introduction
-                    </button>
-                  </motion.div>
-
-                  {/* Simple Navigation Hint */}
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.8, delay: 1.2 }}
-                    className="pt-8"
-                  >
-                    <div className="text-slate-400 text-sm">
-                      <p>Press ESC or ENTER to skip animations</p>
-                    </div>
                   </motion.div>
                 </div>
               </motion.div>

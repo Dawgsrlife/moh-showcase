@@ -24,7 +24,7 @@ const WelcomeSequence = ({ onComplete, allowSkip = true }: WelcomeSequenceProps)
               Welcome
             </h1>
             <p className="text-xl md:text-2xl text-white/90 font-medium">
-              to a professional showcase
+              to my internship showcase
             </p>
           </motion.div>
         </div>
@@ -41,15 +41,19 @@ const WelcomeSequence = ({ onComplete, allowSkip = true }: WelcomeSequenceProps)
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="space-y-6"
           >
-            <div className="inline-flex items-center justify-center w-32 h-32 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6">
-              <span className="text-4xl font-black text-white">AM</span>
+            <div className="flex justify-center mb-6">
+              <img 
+                src="/images/AlexTheMango.JPG"
+                alt="Alexander He Meng - Profile Picture"
+                className="w-32 h-32 rounded-full object-cover border-4 border-white/30 shadow-2xl"
+              />
             </div>
             <h1 className="text-5xl md:text-7xl font-black text-white leading-tight">
               Alexander He Meng
             </h1>
             <div className="space-y-3">
               <p className="text-2xl md:text-3xl text-white/90 font-semibold">
-                Application Programmer Co-op
+                Application Programmer (Co-op)
               </p>
               <p className="text-lg md:text-xl text-white/80 font-medium">
                 Ontario Ministry of Public & Business Service Delivery
@@ -72,15 +76,15 @@ const WelcomeSequence = ({ onComplete, allowSkip = true }: WelcomeSequenceProps)
           >
             <div className="w-16 h-1 bg-gradient-to-r from-emerald-400 to-blue-400 mx-auto rounded-full mb-8"></div>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Technical Excellence
+              Enterprise Impact Achieved
             </h2>
             <p className="text-xl md:text-2xl text-white/90 font-medium leading-relaxed max-w-4xl mx-auto">
-              Presenting enterprise-scale achievements in SAS Viya migration, 
-              AWS infrastructure optimization, and analytics automation
+              Showcasing real-world contributions in SAS Viya migration, 
+              automation development, and team collaboration
             </p>
             <div className="flex justify-center items-center space-x-4 pt-4">
               <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-              <span className="text-white/70 font-medium">5-minute showcase experience</span>
+              <span className="text-white/80 font-medium">5-minute showcase experience</span>
             </div>
           </motion.div>
         </div>
@@ -211,9 +215,9 @@ const WelcomeSequence = ({ onComplete, allowSkip = true }: WelcomeSequenceProps)
       )}
 
       {/* Progress indicator */}
-      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
-        <div className="text-center space-y-4">
-          <div className="flex space-x-3">
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2">
+        <div className="flex flex-col items-center space-y-4">
+          <div className="flex justify-center space-x-3">
             {welcomeSteps.map((_, index) => (
               <motion.div
                 key={index}
@@ -228,7 +232,7 @@ const WelcomeSequence = ({ onComplete, allowSkip = true }: WelcomeSequenceProps)
           </div>
           {allowSkip && (
             <motion.p 
-              className="text-white/50 text-xs"
+              className="text-white/50 text-xs text-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 2 }}

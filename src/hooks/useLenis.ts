@@ -7,6 +7,7 @@ interface LenisInstance {
   start: () => void
   stop: () => void
   raf: (time: number) => void
+  scrollTo: (target: string | number | HTMLElement, options?: { duration?: number; offset?: number }) => void
 }
 
 export const useLenis = (enabled: boolean = true) => {
@@ -36,6 +37,9 @@ export const useLenis = (enabled: boolean = true) => {
           touchMultiplier: 2,
           infinite: false,
         })
+
+        // Make Lenis instance globally available
+        ;(window as any).lenis = lenisRef.current
 
         // Connect Lenis to requestAnimationFrame
         const raf = (time: number) => {

@@ -53,6 +53,55 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--gray-900);
 }
 
+/* Dark background sections should have white text */
+#hero,
+#closing,
+#impact .bg-gradient-to-br.from-gray-900,
+.bg-gradient-to-br.from-indigo-900,
+.bg-gradient-to-r.from-purple-900,
+.bg-gradient-to-r.from-blue-900 {
+  color: #ffffff;
+}
+
+#hero h1,
+#hero h2,
+#hero h3,
+#hero h4,
+#hero h5,
+#hero h6,
+#closing h1,
+#closing h2,
+#closing h3,
+#closing h4,
+#closing h5,
+#closing h6,
+#impact .bg-gradient-to-br.from-gray-900 h1,
+#impact .bg-gradient-to-br.from-gray-900 h2,
+#impact .bg-gradient-to-br.from-gray-900 h3,
+#impact .bg-gradient-to-br.from-gray-900 h4,
+#impact .bg-gradient-to-br.from-gray-900 h5,
+#impact .bg-gradient-to-br.from-gray-900 h6,
+.bg-gradient-to-br.from-indigo-900 h1,
+.bg-gradient-to-br.from-indigo-900 h2,
+.bg-gradient-to-br.from-indigo-900 h3,
+.bg-gradient-to-br.from-indigo-900 h4,
+.bg-gradient-to-br.from-indigo-900 h5,
+.bg-gradient-to-br.from-indigo-900 h6,
+.bg-gradient-to-r.from-purple-900 h1,
+.bg-gradient-to-r.from-purple-900 h2,
+.bg-gradient-to-r.from-purple-900 h3,
+.bg-gradient-to-r.from-purple-900 h4,
+.bg-gradient-to-r.from-purple-900 h5,
+.bg-gradient-to-r.from-purple-900 h6,
+.bg-gradient-to-r.from-blue-900 h1,
+.bg-gradient-to-r.from-blue-900 h2,
+.bg-gradient-to-r.from-blue-900 h3,
+.bg-gradient-to-r.from-blue-900 h4,
+.bg-gradient-to-r.from-blue-900 h5,
+.bg-gradient-to-r.from-blue-900 h6 {
+  color: #ffffff !important;
+}
+
 h1 {
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   -webkit-background-clip: text;
@@ -133,8 +182,13 @@ input[type="reset"],
 .nav-item,
 .timeline-item,
 .tech-tag,
-.metric-card {
-  cursor: pointer;
+.metric-card,
+img[onclick],
+.cursor-pointer,
+[data-testid*="button"],
+.group img,
+.hover-scale img {
+  cursor: pointer !important;
 }
 
 .btn::before {
@@ -327,8 +381,8 @@ input[type="reset"],
   border: 1px solid rgba(229, 229, 229, 0.5);
 }
 
-/* Three.js Background */
-.three-canvas {
+/* Network Background Canvas */
+.network-canvas {
   position: fixed !important;
   top: 0;
   left: 0;
@@ -336,7 +390,7 @@ input[type="reset"],
   height: 100vh !important;
   z-index: -1 !important;
   pointer-events: none;
-  opacity: 0.4;
+  opacity: 0.8;
 }
 
 /* Navigation Overlay - Fixed positioning with countdown animation */
@@ -344,12 +398,26 @@ input[type="reset"],
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  z-index: 50;
+  z-index: 60;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-overlay.nav-pushed-up {
   transform: translateY(-5rem);
+}
+
+/* NavDots positioning - move aside when nav expands */
+.nav-dots-container {
+  position: fixed;
+  right: 6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-dots-container.nav-dots-pushed {
+  transform: translateY(-50%) translateX(-18rem);
 }
 
 .countdown-container {
