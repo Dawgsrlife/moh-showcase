@@ -8,7 +8,7 @@ interface SectionProps {
   variant: 'snap' | 'pin'
   className?: string
   children: ReactNode
-  setupCallback?: (gsap: any, ScrollTrigger: any, el: Element) => () => void
+  setupCallback?: (gsap: unknown, ScrollTrigger: unknown, el: Element) => () => void
 }
 
 const Section = ({ id, variant, className = '', children, setupCallback }: SectionProps) => {

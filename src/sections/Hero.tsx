@@ -56,16 +56,15 @@ const Hero = () => {
 
   return (
     <Section id="hero" variant="snap">
-      <div className="min-h-screen relative">
-        {/* Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50"></div>
+      <div className="min-h-screen relative overflow-hidden">
+        {/* Clean Professional Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900"></div>
         
-        {/* Geometric Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-20 left-20 w-32 h-32 bg-blue-500 rounded-full blur-3xl"></div>
-          <div className="absolute top-40 right-20 w-24 h-24 bg-purple-500 rounded-full blur-2xl"></div>
-          <div className="absolute bottom-40 left-1/3 w-40 h-40 bg-cyan-400 rounded-full blur-3xl"></div>
-        </div>
+        {/* Subtle geometric overlay */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.15),transparent_50%),radial-gradient(circle_at_80%_80%,rgba(120,119,198,0.15),transparent_50%)]"></div>
+        
+        {/* Grid pattern overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:72px_72px]"></div>
 
         <div className="container-max section-padding flex items-center justify-center min-h-screen relative z-10">
           <AnimatePresence mode="wait">
@@ -80,12 +79,12 @@ const Hero = () => {
                   transition: { duration: 0.6, ease: 'easeInOut' }
                 }}
               >
-                <div ref={nameRef} className="space-y-4">
-                  <div className="text-6xl md:text-8xl font-bold tracking-tight">
-                    <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Alexander</span>
+                <div ref={nameRef} className="space-y-6">
+                  <div className="text-5xl md:text-7xl font-bold tracking-tight">
+                    <span className="block text-white font-heading">Alexander</span>
                   </div>
-                  <div className="text-6xl md:text-8xl font-bold tracking-tight">
-                    <span className="block bg-gradient-to-r from-purple-600 to-cyan-600 bg-clip-text text-transparent">He Meng</span>
+                  <div className="text-5xl md:text-7xl font-bold tracking-tight">
+                    <span className="block text-blue-300 font-heading">He Meng</span>
                   </div>
                 </div>
               </motion.div>
@@ -95,85 +94,80 @@ const Hero = () => {
             {showContent && (
               <motion.div
                 key="main-content"
-                className="text-center max-w-4xl"
+                className="text-center max-w-5xl"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8 }}
               >
-                <div className="space-y-16">
-                  {/* Introduction */}
+                <div className="space-y-12">
+                  {/* Clean Header Section */}
                   <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="space-y-8"
                   >
-                    <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
-                      Alexander He Meng
-                    </h1>
+                    {/* Main Title */}
                     <div className="space-y-4">
-                      <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full border border-blue-200">
-                        <span className="text-xl text-gray-700 font-semibold">Technical Intern</span>
-                      </div>
-                      <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-                        Ontario Ministry of Public & Business Service Delivery & Procurement
+                      <h1 className="text-6xl md:text-8xl font-bold tracking-tight text-white font-heading">
+                        Technical Excellence
+                      </h1>
+                      <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed font-light">
+                        Presenting enterprise-scale achievements in SAS Viya migration, 
+                        AWS infrastructure optimization, and analytics automation
                       </p>
                     </div>
-                  </motion.div>
 
-                  {/* Key Stats */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.6 }}
-                    className="grid-responsive-3 gap-8"
-                  >
-                    <div className="text-center space-y-3 p-6 bg-white/60 backdrop-blur-sm rounded-2xl border border-gray-200">
-                      <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">5</div>
-                      <div className="text-sm text-gray-600 font-medium">Months Experience</div>
-                    </div>
-                    <div className="text-center space-y-3 p-6 bg-white/60 backdrop-blur-sm rounded-2xl border border-gray-200">
-                      <div className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">36×</div>
-                      <div className="text-sm text-gray-600 font-medium">Performance Gain</div>
-                    </div>
-                    <div className="text-center space-y-3 p-6 bg-white/60 backdrop-blur-sm rounded-2xl border border-gray-200">
-                      <div className="text-4xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">90%</div>
-                      <div className="text-sm text-gray-600 font-medium">Automation Achieved</div>
+                    {/* Clean Presenter Info */}
+                    <div className="pt-8 border-t border-white/10">
+                      <div className="inline-flex items-center space-x-4 px-8 py-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
+                        <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                        <span className="text-white/90 font-medium">5-minute showcase experience</span>
+                      </div>
                     </div>
                   </motion.div>
 
-                  {/* Actions */}
+                  {/* Clean Action Buttons */}
                   <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 1.0 }}
+                    transition={{ duration: 0.8, delay: 0.8 }}
                     className="flex flex-col sm:flex-row items-center justify-center gap-6"
                   >
                     <button
                       onClick={() => {
                         document.getElementById('timeline')?.scrollIntoView({ behavior: 'smooth' })
                       }}
-                      className="btn btn-primary"
+                      className="group px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/25"
                     >
-                      View My Work
+                      <span className="flex items-center space-x-2">
+                        <span>Begin Presentation</span>
+                        <span className="group-hover:translate-x-1 transition-transform">→</span>
+                      </span>
                     </button>
-                    <a
-                      href="mailto:alexanderhemeng@gmail.com"
-                      className="btn btn-secondary"
+                    
+                    <button
+                      onClick={() => setShowContent(false)}
+                      className="px-6 py-3 text-white/70 hover:text-white border border-white/20 hover:border-white/40 rounded-xl transition-all duration-300 font-medium"
                     >
-                      Get In Touch
-                    </a>
+                      Skip Introduction →
+                    </button>
                   </motion.div>
 
-                  {/* Scroll Indicator */}
+                  {/* Navigation Hint */}
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 0.8, delay: 1.4 }}
-                    className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+                    transition={{ duration: 0.8, delay: 1.2 }}
+                    className="pt-12"
                   >
-                    <div className="w-6 h-10 border-2 border-blue-300 rounded-full flex justify-center bg-white/50 backdrop-blur-sm">
-                      <div className="w-1 h-3 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full mt-2 animate-bounce"></div>
+                    <div className="text-white/50 text-sm font-medium space-y-2">
+                      <p>Press ESC or ENTER to skip animations</p>
+                      <div className="flex justify-center space-x-2">
+                        <div className="w-2 h-2 bg-white/30 rounded-full"></div>
+                        <div className="w-2 h-2 bg-white/20 rounded-full"></div>
+                        <div className="w-2 h-2 bg-white/20 rounded-full"></div>
+                      </div>
                     </div>
                   </motion.div>
                 </div>

@@ -1,6 +1,6 @@
 // Lazy import and plugin registration for GSAP
-let gsapPromise: Promise<any> | null = null
-let scrollTriggerPromise: Promise<any> | null = null
+let gsapPromise: Promise<unknown> | null = null
+let scrollTriggerPromise: Promise<unknown> | null = null
 let scrollTriggerRegistered = false
 
 export const gsapCore = {
@@ -16,7 +16,8 @@ export const gsapCore = {
     if (!scrollTriggerRegistered) {
       if (!scrollTriggerPromise) {
         scrollTriggerPromise = import('gsap/ScrollTrigger').then((module) => {
-          gsap.registerPlugin(module.ScrollTrigger)
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          ;(gsap as any).registerPlugin(module.ScrollTrigger)
           scrollTriggerRegistered = true
           return module.ScrollTrigger
         })
@@ -26,6 +27,7 @@ export const gsapCore = {
     
     return {
       gsap,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       ScrollTrigger: (gsap as any).ScrollTrigger
     }
   },

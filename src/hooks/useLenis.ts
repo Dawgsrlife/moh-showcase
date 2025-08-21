@@ -9,12 +9,6 @@ interface LenisInstance {
   raf: (time: number) => void
 }
 
-interface LenisConstructor {
-  new (options: any): LenisInstance
-}
-
-declare const Lenis: LenisConstructor
-
 export const useLenis = (enabled: boolean = true) => {
   const lenisRef = useRef<LenisInstance | null>(null)
   const prefersReducedMotion = usePrefersReducedMotion()
@@ -30,9 +24,9 @@ export const useLenis = (enabled: boolean = true) => {
     const initLenis = async () => {
       try {
         // Dynamically import Lenis to avoid blocking the main thread
-        const { default: LenisConstructor } = await import('lenis')
+        const { default: LenisModule } = await import('lenis')
         
-        lenisRef.current = new LenisConstructor({
+        lenisRef.current = new LenisModule({
           duration: 1.2,
           easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Custom easing
           orientation: 'vertical',

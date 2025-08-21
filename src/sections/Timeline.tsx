@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
 import Section from '../components/Section'
-import { milestones } from '../data/milestones'
+import { milestones, type Milestone } from '../data/milestones'
 
 interface TimelineItemProps {
-  milestone: any
+  milestone: Milestone
   index: number
 }
 

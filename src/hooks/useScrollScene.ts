@@ -8,18 +8,18 @@ export interface ScrollSceneConfig {
   end?: string
   pin?: boolean
   scrub?: number | boolean
-  onEnter?: (self: any) => void
-  onLeave?: (self: any) => void
-  onUpdate?: (self: any) => void
+  onEnter?: (self: unknown) => void
+  onLeave?: (self: unknown) => void
+  onUpdate?: (self: unknown) => void
 }
 
 export const useScrollScene = (
-  setupCallback: (gsap: any, ScrollTrigger: any, el: Element) => () => void,
+  setupCallback: (gsap: unknown, ScrollTrigger: unknown, el: Element) => () => void,
   config: ScrollSceneConfig = {}
 ) => {
   const ref = useRef<HTMLDivElement>(null)
   const prefersReducedMotion = usePrefersReducedMotion()
-  const sceneRef = useRef<any>(null)
+  const sceneRef = useRef<unknown>(null)
 
   useEffect(() => {
     // Don't initialize ScrollTrigger if user prefers reduced motion
@@ -71,7 +71,8 @@ export const useScrollScene = (
         cleanup()
       }
       if (sceneRef.current) {
-        sceneRef.current.kill()
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        ;(sceneRef.current as any).kill()
       }
     }
   }, [setupCallback, config, prefersReducedMotion])
