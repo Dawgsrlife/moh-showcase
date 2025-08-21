@@ -1,124 +1,126 @@
-# Ontario Ministry of Health Internship Showcase
+# MOH Summer 2025 Internship Showcase
 
-A five-minute interactive scroll-story website showcasing my Ontario Ministry of Health internship experience.
+> **Live Demo**: [https://alex-moh-summer-2025.netlify.app/](https://alex-moh-summer-2025.netlify.app/)
+
+An interactive web showcase documenting my summer 2025 internship experience at the Ontario Ministry of Public & Business Service Delivery and Procurement. Built as a scroll-driven story with a 5-minute countdown timer to highlight key projects, achievements, and technical contributions.
+
+![Live Demo Screenshot](./public/images/livedemo.PNG)
+
+## Overview
+
+This project showcases real-world enterprise software development experience, including SAS Viya migration work, automation script development, and collaborative team projects. The site features smooth scroll animations, interactive timelines, and responsive design optimized for both desktop and mobile viewing.
+
+## Key Features
+
+- **Interactive Timeline**: Scroll-driven storytelling with pinned sections
+- **5-Minute Experience**: Timed showcase designed for quick viewing
+- **Technical Deep Dives**: Detailed project documentation with visual examples
+- **Performance Metrics**: Quantified impact and achievements
+- **Responsive Design**: Optimized for all screen sizes
+- **Accessibility**: Full keyboard navigation and reduced motion support
+
+## Technical Stack
+
+- **Frontend**: React 18 + TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS v4
+- **Animations**: Framer Motion + GSAP ScrollTrigger
+- **Smooth Scrolling**: Lenis
+- **Deployment**: Netlify
+
+## Project Highlights
+
+### SAS Viya Migration Support
+- Assisted with enterprise migration from SAS Enterprise Guide to SAS Viya
+- Performance testing and optimization of SAS macro executions
+- Documentation and troubleshooting of migration processes
+
+![Technical Onboarding](./public/images/technical_onboarding_complete.PNG)
+
+### Automation Development
+- Created Python automation scripts for data processing workflows
+- Implemented testing frameworks for script validation
+- Collaborated on remediation tools for data quality assurance
+
+### Team Collaboration
+- Worked alongside experienced developers and data analysts
+- Participated in code reviews and technical discussions
+- Contributed to team knowledge sharing and documentation
+
+![Team Collaboration](./public/images/lunch_with_colleagues.PNG)
+
+## Development Approach
+
+### Code Quality
+- TypeScript for type safety and better developer experience
+- ESLint configuration for consistent code style
+- Component-based architecture with reusable modules
+- Performance optimization with lazy loading and memoization
+
+### Accessibility
+- Semantic HTML structure with proper ARIA labels
+- Keyboard navigation support throughout the application
+- Reduced motion preferences respected
+- Focus management for screen readers
+
+### Performance
+- Optimized bundle size with code splitting
+- Efficient animation rendering with RAF (RequestAnimationFrame)
+- Image optimization and lazy loading
+- Responsive design with mobile-first approach
+
+## Getting Started
+
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+```bash
+git clone https://github.com/Dawgsrlife/moh-showcase.git
+cd moh-showcase
+npm install
+```
+
+### Development
+```bash
+npm run dev
+```
+
+### Build
+```bash
+npm run build
+```
+
+### Lint
+```bash
+npm run lint
+```
 
 ## Project Structure
 
-```
-src/
-├── app/
-│   ├── App.tsx                     // Main application component
-│   └── Routes.tsx                  // Section routing
-├── components/
-│   ├── AnimatedBackground.tsx      // Background with particles grid
-│   ├── Card.tsx                    // Reusable card component
-│   ├── Countdown.tsx               // Five-minute timer
-│   ├── Metric.tsx                  // Animated metric counter
-│   ├── NavDots.tsx                 // Scroll navigation dots
-│   ├── Section.tsx                 // Section wrapper (snap or pin)
-│   └── SkipLink.tsx                // Accessibility skip link
-├── data/
-│   ├── experiences.ts             // Internship experiences
-│   ├── metrics.ts                 // Impact metrics
-│   └── milestones.ts              // Timeline milestones
-├── hooks/
-│   ├── useInViewOnce.ts            // Intersection observer (once)
-│   ├── useLenis.ts                 // Smooth scrolling
-│   ├── usePrefersReducedMotion.ts  // Reduced motion detection
-│   └── useScrollScene.ts           // GSAP ScrollTrigger integration
-├── lib/
-│   ├── gsapCore.ts                 // GSAP lazy loading
-│   ├── motion.ts                   // Framer Motion variants
-│   ├── numbers.ts                  // Number formatting utilities
-│   └── threeCore.ts                // Three.js lazy loading
-├── sections/
-│   ├── Closing.tsx                 // Closing section
-│   ├── DeepDives.tsx              // Deep dive projects
-│   ├── Hero.tsx                    // Hero section
-│   ├── Impact.tsx                  // Impact metrics
-│   ├── Timeline.tsx                // Work timeline
-│   └── Tools.tsx                   // Tools and technologies
-└── __tests__/
-    ├── components/
-    │   └── Card.test.ts           // Card component tests
-    ├── data/
-    │   └── data.test.ts           // Data structure tests
-    ├── hooks/
-    │   └── usePrefersReducedMotion.test.ts // Hook tests
-    └── lib/
-        └── numbers.test.ts        // Utility function tests
-```
+The codebase follows a modular architecture with clear separation of concerns:
 
-## Technologies Used
+- **Components**: Reusable UI components with TypeScript interfaces
+- **Sections**: Main content sections with scroll-driven animations
+- **Hooks**: Custom React hooks for state management and effects
+- **Data**: Structured content and configuration
+- **Utilities**: Helper functions and animation libraries
 
-- **React 18** with TypeScript
-- **Vite** for fast development
-- **Tailwind CSS v4** for styling
-- **Framer Motion** for UI animations
-- **GSAP ScrollTrigger** for scroll-driven animations
-- **Lenis** for smooth scrolling
-- **Three.js** for background particles (optional)
+## Deployment
 
-## Features
+The site is automatically deployed to Netlify on every push to the main branch. The deployment includes:
 
-- Scroll-driven storytelling with pinned and snap sections
-- Five-minute countdown timer
-- Accessible design with keyboard navigation
-- Reduced motion support
-- Responsive layout
-- Performance optimized with lazy loading
-- Data-driven content
+- Automatic builds using the Vite build system
+- SPA routing configuration for client-side navigation
+- Performance optimizations and asset compression
 
-## Implementation Details
+## Contact
 
-### SOLID Principles
+**Alexander He Meng**  
+Application Programmer (Co-op)  
+Ontario Ministry of Public & Business Service Delivery & Procurement
 
-- **Single Responsibility**: Each component and hook has a single purpose
-- **Open/Closed**: Sections can be extended without modifying existing code
-- **Liskov Substitution**: All sections implement the same interface
-- **Interface Segregation**: Interfaces are kept small and focused
-- **Dependency Inversion**: Dependencies are injected rather than hardcoded
+---
 
-### Performance Optimizations
-
-- Lazy loading for GSAP, ScrollTrigger, and Three.js
-- Component memoization with React.memo
-- RequestAnimationFrame for smooth animations
-- Automatic pause when tab is hidden
-- File size limits (under 120 lines per file)
-
-### Accessibility
-
-- Keyboard navigation parity with hover effects
-- Skip link for keyboard users
-- Focus-visible styles
-- Reduced motion support
-- Semantic HTML structure
-- ARIA labels and roles
-
-## File Size Management
-
-All files are kept under 120 lines by:
-- Splitting complex components into smaller ones
-- Extracting hooks for complex logic
-- Creating utility functions for repeated code
-- Using barrel exports for related files
-
-## Extension Notes
-
-To add a new section:
-1. Create a new component in `src/sections/`
-2. Add the section to `src/app/Routes.tsx`
-3. Follow the same pattern as existing sections
-4. Use the `Section` component with appropriate variant
-5. Ensure accessibility and performance standards
-
-## Testing
-
-Simple tests are included for:
-- Utility functions (`lib/numbers.ts`)
-- Data structure validation
-- Component prop validation
-- Hook logic validation
-
-Note: These are simplified tests. In a production environment, you would use a full testing framework like Vitest or Jest with React Testing Library.
+*This showcase represents real work and achievements from a summer 2025 internship position. All content and code examples reflect actual projects and contributions made during the internship period.*

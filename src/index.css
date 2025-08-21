@@ -112,6 +112,15 @@ h1, h2, h3, h4, h5, h6 {
   color: #ffffff !important;
 }
 
+/* WelcomeSequence specific override */
+.welcome-enterprise-title {
+  color: #ffffff !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background-clip: unset !important;
+}
+
 h1 {
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   -webkit-background-clip: text;
