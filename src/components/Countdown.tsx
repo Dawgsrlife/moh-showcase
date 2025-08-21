@@ -44,7 +44,7 @@ const Countdown = ({ onEnded }: CountdownProps) => {
 
   return (
     <motion.div
-      className="fixed top-6 left-6 z-50 glass rounded-xl shadow-lg p-4 flex items-center space-x-4"
+      className="countdown-container glass rounded-xl shadow-lg p-4 flex items-center space-x-4"
       initial={{ opacity: 0, scale: 0.8, y: -20 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}

@@ -119,6 +119,24 @@ h1 {
   overflow: hidden;
 }
 
+/* Add cursor pointer to all clickable elements */
+button, 
+a, 
+[role="button"], 
+[data-clickable="true"],
+.interactive,
+.card:hover,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+.btn,
+.nav-item,
+.timeline-item,
+.tech-tag,
+.metric-card {
+  cursor: pointer;
+}
+
 .btn::before {
   content: '';
   position: absolute;
@@ -321,12 +339,29 @@ h1 {
   opacity: 0.4;
 }
 
-/* Navigation Overlay - Fixed positioning */
+/* Navigation Overlay - Fixed positioning with countdown animation */
 .nav-overlay {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
   z-index: 50;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-overlay.nav-pushed-up {
+  transform: translateY(-5rem);
+}
+
+.countdown-container {
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 50;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.countdown-container.countdown-pushed-down {
+  transform: translateY(4rem);
 }
 
 /* Focus States */

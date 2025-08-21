@@ -66,6 +66,14 @@ export const milestones: Milestone[] = [
     impact: 'Enhanced migration reliability'
   },
   {
+    id: 'performance-benchmarking',
+    date: '2025-06-15',
+    title: 'Infrastructure Performance Study',
+    description: 'Executed SAS macro scripts for AWS Redshift vs SAS Viya benchmarking, achieving 36x performance improvements (3h → 5m)',
+    technologies: ['SAS Macros', 'AWS Redshift', 'Performance Analysis'],
+    impact: 'Informed strategic migration decisions'
+  },
+  {
     id: 'automation-script',
     date: '2025-07-11',
     title: 'Remediation Automation',
@@ -83,19 +91,19 @@ export const milestones: Milestone[] = [
   },
   {
     id: 'final-validation',
-    date: '2025-07-31',
+    date: '2025-08-01',
     title: 'Post-Migration Validation',
     description: 'Completed comprehensive re-testing of enterprise reports following backend driver updates, ensuring system stability',
     technologies: ['System Testing', 'Backend Integration'],
     impact: 'Validated migration readiness for production'
   },
   {
-    id: 'performance-benchmarking',
+    id: 'sas-viya-golive',
     date: '2025-08-15',
-    title: 'Infrastructure Performance Study',
-    description: 'Executed SAS macro scripts for AWS Redshift vs SAS Viya benchmarking, achieving 36x performance improvements (3h → 5m)',
-    technologies: ['SAS Macros', 'AWS Redshift', 'Performance Analysis'],
-    impact: 'Informed strategic migration decisions'
+    title: 'SAS Viya 4 Go-Live Achievement',
+    description: 'Celebrated successful province-wide SAS Viya 4 deployment, enabling analytics transformation for 14.5M Ontario residents',
+    technologies: ['SAS Viya 4', 'Enterprise Deployment', 'Team Collaboration'],
+    impact: 'Achieved critical government infrastructure milestone'
   }
 ]
 

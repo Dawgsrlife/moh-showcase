@@ -40,6 +40,18 @@ const PresentationNav = () => {
     return () => observer.disconnect()
   }, [])
 
+  // Add effect to push countdown up when nav expands
+  useEffect(() => {
+    const countdown = document.querySelector('.countdown-container')
+    if (countdown) {
+      if (isExpanded) {
+        countdown.classList.add('countdown-pushed-down')
+      } else {
+        countdown.classList.remove('countdown-pushed-down')
+      }
+    }
+  }, [isExpanded])
+
   const handleNavClick = (id: string) => {
     const element = document.getElementById(id)
     if (element) {
@@ -51,7 +63,7 @@ const PresentationNav = () => {
   const currentItem = navItems.find(item => item.id === activeSection) || navItems[0]
 
   return (
-    <div className="nav-overlay">
+    <div className={`nav-overlay ${isExpanded ? 'nav-pushed-up' : ''}`}>
       <motion.div
         className="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden"
         initial={false}
@@ -59,13 +71,13 @@ const PresentationNav = () => {
           width: isExpanded ? 280 : 64,
           height: isExpanded ? 'auto' : 64
         }}
-        transition={{ duration: 0.2, ease: 'easeInOut' }}
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
       >
         {/* Collapsed State */}
         {!isExpanded && (
           <motion.button
             onClick={() => setIsExpanded(true)}
-            className="w-full h-full p-4 flex items-center justify-center hover:bg-gray-50 transition-colors"
+            className="w-full h-full p-4 flex items-center justify-center hover:bg-gray-50 transition-colors cursor-pointer"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -91,7 +103,7 @@ const PresentationNav = () => {
               </span>
               <button
                 onClick={() => setIsExpanded(false)}
-                className="w-6 h-6 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors"
+                className="w-6 h-6 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors cursor-pointer"
               >
                 <svg className="w-3 h-3 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -104,7 +116,7 @@ const PresentationNav = () => {
                 <motion.button
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
-                  className={`w-full text-left p-2 rounded text-sm transition-all ${
+                  className={`w-full text-left p-2 rounded text-sm transition-all cursor-pointer ${
                     activeSection === item.id
                       ? 'bg-black text-white'
                       : 'hover:bg-gray-50 text-gray-700'

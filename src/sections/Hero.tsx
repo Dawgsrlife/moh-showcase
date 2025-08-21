@@ -109,7 +109,7 @@ const Hero = () => {
                       <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white font-heading">
                         Internship Showcase
                       </h1>
-                      <p className="text-lg md:text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
+                      <p className="text-lg md:text-xl text-slate-200 max-w-4xl mx-auto leading-relaxed">
                         Enterprise analytics migration, AWS infrastructure work, 
                         and automation development at Ontario Ministry
                       </p>
@@ -135,14 +135,14 @@ const Hero = () => {
                       onClick={() => {
                         document.getElementById('timeline')?.scrollIntoView({ behavior: 'smooth' })
                       }}
-                      className="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105"
+                      className="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 cursor-pointer"
                     >
                       Begin Presentation
                     </button>
                     
                     <button
                       onClick={() => setShowContent(false)}
-                      className="px-6 py-3 text-slate-300 hover:text-white border border-slate-600 hover:border-slate-400 rounded-lg transition-all duration-300 font-medium"
+                      className="px-6 py-3 text-slate-300 hover:text-white border border-slate-600 hover:border-slate-400 rounded-lg transition-all duration-300 font-medium cursor-pointer"
                     >
                       Skip Introduction
                     </button>

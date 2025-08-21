@@ -33,11 +33,11 @@ const TimelineItem = ({ milestone, index }: TimelineItemProps) => (
       </div>
 
       <div className="space-y-6">
-        <h3 className="text-2xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+        <h3 className="text-2xl font-bold text-gray-900">
           {milestone.title}
         </h3>
         
-        <p className="text-gray-600 leading-relaxed text-lg">
+        <p className="text-gray-700 leading-relaxed text-lg">
           {milestone.description}
         </p>
 
@@ -45,7 +45,7 @@ const TimelineItem = ({ milestone, index }: TimelineItemProps) => (
           <div className="relative pl-6">
             <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-green-400 to-blue-500 rounded-full"></div>
             <div className="bg-gradient-to-r from-green-50 to-blue-50 p-4 rounded-lg border border-green-200">
-              <p className="text-gray-800 font-semibold">
+              <p className="text-gray-900 font-semibold">
                 💡 {milestone.impact}
               </p>
             </div>
@@ -57,7 +57,7 @@ const TimelineItem = ({ milestone, index }: TimelineItemProps) => (
             {milestone.technologies.map((tech: string, techIndex: number) => (
               <span 
                 key={techIndex}
-                className="px-4 py-2 text-sm font-medium bg-gradient-to-r from-gray-100 to-gray-50 text-gray-700 rounded-full border border-gray-200 hover:from-blue-50 hover:to-purple-50 hover:border-blue-200 transition-all duration-300"
+                className="px-4 py-2 text-sm font-medium bg-gradient-to-r from-gray-100 to-gray-50 text-gray-800 rounded-full border border-gray-200 hover:from-blue-50 hover:to-purple-50 hover:border-blue-200 transition-all duration-300 cursor-pointer"
               >
                 {tech}
               </span>
@@ -87,7 +87,7 @@ const Timeline = () => {
             <h2 className="text-4xl md:text-5xl font-bold">
               What I Accomplished
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+            <p className="text-gray-700 max-w-2xl mx-auto text-lg">
               Key technical milestones and achievements during my internship
             </p>
           </motion.div>

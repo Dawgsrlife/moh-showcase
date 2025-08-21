@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Cloud, Zap, BarChart3 } from 'lucide-react'
 import Section from '../components/Section'
 import { experiences } from '../data/experiences'
 
@@ -10,7 +11,7 @@ const Tools = () => {
   const categories = [
     {
       name: 'Cloud & Infrastructure',
-      icon: '☁️',
+      icon: Cloud,
       color: 'from-blue-500 to-cyan-500',
       bgColor: 'from-blue-50 to-cyan-50',
       techs: uniqueTech.filter(tech => 
@@ -19,7 +20,7 @@ const Tools = () => {
     },
     {
       name: 'Programming & Automation',
-      icon: '⚡',
+      icon: Zap,
       color: 'from-purple-500 to-pink-500',
       bgColor: 'from-purple-50 to-pink-50',
       techs: uniqueTech.filter(tech => 
@@ -28,7 +29,7 @@ const Tools = () => {
     },
     {
       name: 'Analytics & Business Intelligence',
-      icon: '📊',
+      icon: BarChart3,
       color: 'from-green-500 to-emerald-500',
       bgColor: 'from-green-50 to-emerald-50',
       techs: uniqueTech.filter(tech => 
@@ -78,7 +79,9 @@ const Tools = () => {
               >
                 <div className={`bg-gradient-to-br ${category.bgColor} p-8 rounded-3xl border border-gray-200 hover:shadow-2xl transition-all duration-500 group`}>
                   <div className="text-center mb-6">
-                    <div className="text-4xl mb-4">{category.icon}</div>
+                    <div className="flex justify-center mb-4">
+                      <category.icon className="w-12 h-12 text-gray-700" strokeWidth={1.5} />
+                    </div>
                     <h3 className={`text-2xl font-bold bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}>
                       {category.name}
                     </h3>
@@ -92,7 +95,7 @@ const Tools = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.3, delay: index * 0.05 }}
                         viewport={{ once: true }}
-                        className="px-4 py-3 bg-white/70 backdrop-blur-sm rounded-xl text-center font-semibold text-gray-700 border border-white/50 hover:bg-white/90 hover:border-gray-200 transition-all duration-300 group-hover:transform group-hover:scale-105"
+                        className="px-4 py-3 bg-white/70 backdrop-blur-sm rounded-xl text-center font-semibold text-gray-700 border border-white/50 hover:bg-white/90 hover:border-gray-200 transition-all duration-300 group-hover:transform group-hover:scale-105 cursor-pointer"
                       >
                         {tech}
                       </motion.div>
@@ -119,21 +122,23 @@ const Tools = () => {
                 {
                   title: 'Cloud Migration',
                   description: 'Enterprise SAS Viya deployment and AWS infrastructure optimization',
-                  icon: '☁️'
+                  icon: Cloud
                 },
                 {
                   title: 'Process Automation',
                   description: 'Python scripting and PowerShell automation for operational efficiency',
-                  icon: '⚡'
+                  icon: Zap
                 },
                 {
                   title: 'Data Analytics',
                   description: 'Performance analysis and quality assurance for analytics workflows',
-                  icon: '📊'
+                  icon: BarChart3
                 }
               ].map((area) => (
                 <div key={area.title} className="text-center space-y-4">
-                  <div className="text-4xl">{area.icon}</div>
+                  <div className="flex justify-center">
+                    <area.icon className="w-12 h-12 text-gray-700" strokeWidth={1.5} />
+                  </div>
                   <h4 className="text-lg font-semibold">{area.title}</h4>
                   <p className="text-gray-600 text-sm leading-relaxed">
                     {area.description}

@@ -51,7 +51,7 @@ const NavDots = () => {
             <li key={section.id}>
               <motion.button
                 onClick={() => scrollToSection(section.id)}
-                className={`relative group w-4 h-4 rounded-full transition-all duration-300 ${
+                className={`relative group w-4 h-4 rounded-full transition-all duration-300 cursor-pointer ${
                   activeSection === section.id 
                     ? 'bg-blue-600 scale-125 shadow-lg' 
                     : 'bg-slate-300 hover:bg-slate-400 hover:scale-110'

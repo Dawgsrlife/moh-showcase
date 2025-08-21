@@ -26,7 +26,9 @@ const Routes = () => {
       transition={{ duration: 1, ease: "easeOut" }}
     >
       <AnimatedBackground />
-      <Countdown onEnded={handleTimeEnd} />
+      <div className="countdown-container">
+        <Countdown onEnded={handleTimeEnd} />
+      </div>
       <NavDots />
       <PresentationNav />
       

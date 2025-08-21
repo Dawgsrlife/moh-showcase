@@ -68,18 +68,18 @@ export const experiences: Experience[] = [
 
 // Professional recommendations for organizational enhancement
 export const recommendations = {
-  workspace: [
+  Workspace: [
     'Modernize office environment with collaborative spaces and improved lighting',
     'Implement milestone celebration culture to recognize team achievements',
     'Establish regular civil discourse forums for knowledge sharing'
   ],
-  process: [
+  Process: [
     'Introduce structured sprint deadlines to accelerate delivery cycles',
     'Enhance co-op student onboarding with comprehensive mentorship programs',
     'Create impactful project allocation framework for student contributors',
     'Implement systematic check-in protocols for continuous guidance'
   ],
-  talent: [
+  Talent: [
     'Recruit specialized technical talent for complex migration initiatives',
     'Develop cross-training programs to build team versatility',
     'Establish clear career progression pathways within technical roles'

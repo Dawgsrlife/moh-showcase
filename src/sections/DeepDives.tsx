@@ -92,7 +92,7 @@ const DeepDives = () => {
               {Object.entries(recommendations).map(([category, items]) => (
                 <div key={category} className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
                   <h4 className="text-lg font-semibold text-gray-900 mb-4">
-                    {category.replace(/([A-Z])/g, ' $1').trim()}
+                    {category}
                   </h4>
                   <ul className="space-y-3">
                     {items.map((item, itemIndex) => (
