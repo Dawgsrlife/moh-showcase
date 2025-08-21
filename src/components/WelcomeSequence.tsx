@@ -75,7 +75,7 @@ const WelcomeSequence = ({ onComplete, allowSkip = true }: WelcomeSequenceProps)
             className="space-y-6"
           >
             <div className="w-16 h-1 bg-gradient-to-r from-emerald-400 to-blue-400 mx-auto rounded-full mb-8"></div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6" style={{ color: '#ffffff !important' }}>
               Enterprise Impact Achieved
             </h2>
             <p className="text-xl md:text-2xl text-white/90 font-medium leading-relaxed max-w-4xl mx-auto">
